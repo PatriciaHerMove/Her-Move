@@ -1,6 +1,6 @@
 # Her move website
 
-A static fitness training website for Patricia in Berlin-Köpenick, hosted on Cloudflare Pages at `https://her-move.pages.dev`. The site files are in `public/`; Terraform configuration is in `infra/`.
+A static fitness training website for Patricia in Berlin-Köpenick, hosted on Cloudflare Pages at `https://her-move-berlin.pages.dev`. The site files are in `public/`; Terraform configuration is in `infra/`.
 
 - [Setup and deployment](docs/SETUP.md)
 - [Initial research and architecture](docs/INITIAL_RESEARCH.md)

@@ -16,8 +16,8 @@ Sources: [Cloudflare Web Analytics](https://www.cloudflare.com/web-analytics/), 
 
 ## Current project status
 
-- The website is static HTML, CSS and JavaScript in [`public/`](../public/), deployed to `https://her-move.pages.dev`.
-- [`infra/main.tf`](../infra/main.tf) creates the Pages project and a Web Analytics site for `her-move.pages.dev`, linking the analytics tag and token to the Pages project. Collection requires applying this configuration and redeploying the website.
+- The website is static HTML, CSS and JavaScript in [`public/`](../public/), deployed to `https://her-move-berlin.pages.dev`.
+- [`infra/main.tf`](../infra/main.tf) configures the Pages project and a Web Analytics site for `her-move-berlin.pages.dev`, linking the analytics tag and token to the Pages project. Collection requires applying this configuration and redeploying the website.
 - No analytics snippet is present in the checked-in website. Cloudflare can inject one through dashboard settings, so source inspection alone cannot confirm whether analytics is enabled. The account settings have not been inspected.
 - The booking section is a placeholder. There is currently no completed booking journey to measure.
 - This document does not activate tracking or change infrastructure.
@@ -96,7 +96,7 @@ These are project recommendations, not statements that a provider can observe ex
 
 ### Terraform token requirements
 
-The pinned Cloudflare provider **v5.28.1** supports `cloudflare_web_analytics_site` and the Pages project's `build_config.web_analytics_tag` and `build_config.web_analytics_token` fields. The current Terraform configuration uses these to register `her-move.pages.dev` and enable Pages-managed script injection. `auto_install = false` disables separate zone-level injection; Pages handles injection through its analytics configuration.
+The pinned Cloudflare provider **v5.28.1** supports `cloudflare_web_analytics_site` and the Pages project's `build_config.web_analytics_tag` and `build_config.web_analytics_token` fields. The current Terraform configuration uses these to register `her-move-berlin.pages.dev` and enable Pages-managed script injection. `auto_install = false` disables separate zone-level injection; Pages handles injection through its analytics configuration.
 
 To manage analytics through Terraform, the infrastructure API token needs:
 
@@ -105,7 +105,7 @@ To manage analytics through Terraform, the infrastructure API token needs:
 | **Account → Cloudflare Pages → Edit** | Manage the Pages project and its analytics linkage. |
 | **Account → Account Settings → Edit** | Read and manage the Web Analytics site. |
 
-Scope these permissions to the Cloudflare account containing `her-move`. Update the **`TERRAFORM_CLOUDFLARE_API_TOKEN`** repository secret used by both Terraform workflows. Local Terraform runs use the infrastructure token as `CLOUDFLARE_API_TOKEN` in the ignored `infra/.env` file.
+Scope these permissions to the Cloudflare account containing `her-move-berlin`. Update the **`TERRAFORM_CLOUDFLARE_API_TOKEN`** repository secret used by both Terraform workflows. Local Terraform runs use the infrastructure token as `CLOUDFLARE_API_TOKEN` in the ignored `infra/.env` file.
 
 The separate **`CLOUDFLARE_API_TOKEN` GitHub Actions secret** used by **Deploy website** only needs Pages Edit; do not add Account Settings permission to that deployment token. R2 state credentials do not change. Zone/DNS permissions are only needed if Terraform also manages the optional custom domain.
 
@@ -116,7 +116,7 @@ Sources: [Web Analytics resource permissions](https://raw.githubusercontent.com/
 ### Apply the Terraform configuration
 
 1. Update the infrastructure token with the permissions above.
-2. If analytics already exists for `her-move.pages.dev`, import its existing site into the shared Terraform state before planning. Use the same backend and infrastructure credentials described in [initial setup](SETUP.md#initial-infrastructure-setup), replacing the placeholders with the actual account ID and Web Analytics site ID:
+2. If analytics already exists for `her-move-berlin.pages.dev` but is not in Terraform state, import its existing site into the shared Terraform state before planning. Use the same backend and infrastructure credentials described in [initial setup](SETUP.md#initial-infrastructure-setup), replacing the placeholders with the actual account ID and Web Analytics site ID:
 
    ```sh
    terraform -chdir=infra init
@@ -124,7 +124,7 @@ Sources: [Web Analytics resource permissions](https://raw.githubusercontent.com/
    ```
 
    The site ID is the Web Analytics identifier, not the Pages project name or analytics token. Skip import if no analytics site exists.
-3. Once this change is on `main`, review the **Terraform - Plan** workflow output. Without an imported site, it should create one Web Analytics site and update the existing Pages project in place. With an imported site, it should reconcile that site and update the Pages linkage. Stop if it proposes replacing or deleting the Pages project or changing unrelated infrastructure.
+3. Once this change is on `main`, review the **Terraform - Plan** workflow output. Confirm that it targets the existing `her-move-berlin` project and the intended analytics site. Stop if it proposes replacing or deleting a Pages project or changing unrelated infrastructure. Reconcile any state mismatch before apply.
 4. Run **Terraform - Apply plan** with the reviewed plan run ID, following [the deployment process](SETUP.md#deploy-the-website).
 5. Run **Deploy website** after the apply succeeds. An infrastructure-only merge does not trigger the website workflow, so this redeployment must be started separately.
 6. Verify collection using the browser and dashboard checks below.
@@ -135,10 +135,10 @@ This configuration targets the current Pages hostname. When adopting a custom do
 
 Terraform manages the analytics linkage once applied. The dashboard remains useful for viewing reports and verifying collection. For a manual setup instead of Terraform:
 
-1. In the business owner’s Cloudflare account, open **Workers & Pages → her-move → Metrics**.
+1. In the business owner’s Cloudflare account, open **Workers & Pages → her-move-berlin → Metrics**.
 2. Select **Enable** under Web Analytics. Cloudflare injects its script on the next deployment; avoid installing a second copy manually.
 3. Redeploy using the **Deploy website** GitHub Actions workflow, or merge a reviewed change under `public/` to `main`. See [setup and deployment](SETUP.md).
-4. Visit `https://her-move.pages.dev` in a browser without an analytics blocker for this check.
+4. Visit `https://her-move-berlin.pages.dev` in a browser without an analytics blocker for this check.
 5. In browser Developer Tools, confirm `beacon.min.js` loads and a beacon POST succeeds. Leave the page or hide the tab to trigger performance reporting.
 6. After processing, check Web Analytics for the correct hostname and date range. Verify collection before drawing conclusions from a quiet dashboard.
 

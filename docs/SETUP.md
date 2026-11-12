@@ -2,7 +2,7 @@
 
 This project is designed so the business owner keeps control of every important account and can continue operating the website without the original developer. The owner should create and retain the GitHub and Cloudflare accounts, own the repository and billing relationship, and invite contributors only when support is needed.
 
-The Her move fitness website is a static site in `public/`. Terraform in `infra/` creates the Cloudflare Pages project `her-move`, available at `https://her-move.pages.dev`. No custom domain or DNS records are created until a domain is chosen. The booking provider has not been selected. The page now contains the customer’s four courses, Thursday/Saturday timetable and pricing from `Anleitung Webseite.pdf`. Booking and contact actions are explicitly labelled demos; they do not reserve, charge or contact anyone. See [customer requirements and launch notes](CUSTOMER_REQUIREMENTS.md).
+The Her move fitness website is a static site in `public/`. Terraform in `infra/` configures the Cloudflare Pages project `her-move-berlin`, available at `https://her-move-berlin.pages.dev`. No custom domain or DNS records are created until a domain is chosen. The booking provider has not been selected. The page now contains the customer’s four courses, Thursday/Saturday timetable and pricing from `Anleitung Webseite.pdf`. Booking and contact actions are explicitly labelled demos; they do not reserve, charge or contact anyone. See [customer requirements and launch notes](CUSTOMER_REQUIREMENTS.md).
 
 ## Free operation and handoff checks
 
@@ -53,14 +53,14 @@ Terraform uses two different kinds of credentials. They must not be confused.
 Create this in the owner's Cloudflare account under **My Profile → API Tokens**. Use a narrowly scoped token for the account:
 
 - **Account → Cloudflare Pages → Edit**
-- Add **Account → Account Settings → Edit** when Terraform will manage Web Analytics through `cloudflare_web_analytics_site`. Scope account permissions to the account containing `her-move`.
+- Add **Account → Account Settings → Edit** when Terraform will manage Web Analytics through `cloudflare_web_analytics_site`. Scope account permissions to the account containing `her-move-berlin`.
 - Add **Zone → Zone → Edit** and **Zone → DNS → Edit** only when Terraform will manage a custom domain and its DNS records.
 
 Give the token an expiry date where practical. Save the raw token once in the owner's password manager; Cloudflare will not show the full token again. The token is used locally during initial setup and is later stored as a GitHub Actions secret.
 
 For Terraform-managed analytics, update the token stored in **`TERRAFORM_CLOUDFLARE_API_TOKEN`** so both the plan and apply workflows can read and manage the analytics resource. For local Terraform runs, supply that token as `CLOUDFLARE_API_TOKEN` in the ignored `infra/.env` file. The separate **`CLOUDFLARE_API_TOKEN` GitHub Actions secret** is only for website deployment and does not need Account Settings permission. R2 state credentials remain separate.
 
-Terraform creates a Web Analytics site for `her-move.pages.dev` and links it to the Pages project, so Account Settings Edit is required for the current configuration. Apply the reviewed infrastructure plan, then redeploy the website to activate script injection. If analytics was already enabled manually, [import the existing resource first](ANALYTICS.md#apply-the-terraform-configuration). Provider references: [Web Analytics permissions](https://raw.githubusercontent.com/cloudflare/terraform-provider-cloudflare/v5.28.1/docs/resources/web_analytics_site.md), [Pages permissions](https://raw.githubusercontent.com/cloudflare/terraform-provider-cloudflare/v5.28.1/docs/resources/pages_project.md).
+Terraform configures a Web Analytics site for `her-move-berlin.pages.dev` and links it to the Pages project, so Account Settings Edit is required for the current configuration. Apply the reviewed infrastructure plan, then redeploy the website to activate script injection. If analytics was already enabled manually, [import the existing resource first](ANALYTICS.md#apply-the-terraform-configuration). Provider references: [Web Analytics permissions](https://raw.githubusercontent.com/cloudflare/terraform-provider-cloudflare/v5.28.1/docs/resources/web_analytics_site.md), [Pages permissions](https://raw.githubusercontent.com/cloudflare/terraform-provider-cloudflare/v5.28.1/docs/resources/pages_project.md).
 
 ### 2. R2 S3-compatible credentials for Terraform state
 
@@ -123,7 +123,9 @@ Add `CUSTOM_DOMAIN` only after a domain has been registered and DNS migration is
 
 ## Deploy the website
 
-The [deployment workflow](../.github/workflows/deploy.yml) publishes `public/` to the `her-move` Pages project when changes reach `main`; it can also be started manually. Changes to that workflow also trigger deployment. Opening a feature-branch PR does not deploy the website. Ordinary website updates use the existing Pages project and do not require a Terraform run.
+The [deployment workflow](../.github/workflows/deploy.yml) publishes `public/` to the `her-move-berlin` Pages project when changes reach `main`; it can also be started manually. Changes to that workflow also trigger deployment. Opening a feature-branch PR does not deploy the website. Ordinary website updates use the existing Pages project and do not require a Terraform run.
+
+Before applying Terraform, confirm the reviewed plan targets the existing `her-move-berlin` project. Stop if it proposes deleting or replacing a Pages project. Reconcile any state mismatch under a separately reviewed infrastructure operation; changing the deployment target alone does not update Terraform state.
 
 Infrastructure changes follow a reviewable two-step process:
 

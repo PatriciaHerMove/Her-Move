@@ -20,7 +20,7 @@ The offers are documented in the customer brief; the exact booking flow and oper
 
 ## Website architecture
 
-The implementation uses HTML, one stylesheet and JavaScript in `public/`, without a build step or runtime dependencies. The legal pages work without JavaScript. GitHub Actions deploys these files to the `her-move` Cloudflare Pages project. Terraform in `infra/` configures that project, Web Analytics and an optional future custom domain. Actual analytics collection must be checked in the deployed site and account settings; see [analytics notes](ANALYTICS.md).
+The implementation uses HTML, one stylesheet and JavaScript in `public/`, without a build step or runtime dependencies. The legal pages work without JavaScript. GitHub Actions deploys these files to the `her-move-berlin` Cloudflare Pages project. Terraform in `infra/` configures that project, Web Analytics and an optional future custom domain. Actual analytics collection must be checked in the deployed site and account settings; see [analytics notes](ANALYTICS.md).
 
 A static site can display offers and link to a booking or contact service. It cannot maintain live availability or reservations by itself. Any future service must satisfy the cost, privacy and security requirements; adding a backend is not authorized by an ordinary website request. See [AI maintenance instructions](../AGENTS.md).
 
