@@ -2,7 +2,7 @@ provider "cloudflare" {}
 
 locals {
   has_custom_domain  = var.domain_name != ""
-  pages_project_name = "her-move"
+  pages_project_name = "her-move-berlin"
 }
 
 resource "cloudflare_web_analytics_site" "her_move" {
