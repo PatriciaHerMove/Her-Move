@@ -3,7 +3,7 @@ terraform {
 
   # Create this private R2 bucket before running terraform init.
   backend "s3" {
-    bucket                      = "yoga-website-terraform-state"
+    bucket                      = "website-terraform-state"
     key                         = "infra/terraform.tfstate"
     region                      = "auto"
     use_lockfile                = true
