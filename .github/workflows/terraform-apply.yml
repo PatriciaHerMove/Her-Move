@@ -1,0 +1,89 @@
+name: Terraform - Apply plan
+
+on:
+  workflow_dispatch:
+    inputs:
+      plan_run_id:
+        description: Run ID of the reviewed Terraform infrastructure plan
+        required: true
+        type: number
+
+permissions:
+  contents: read
+  actions: read
+
+# Serialize Terraform runs that access the shared state.
+concurrency:
+  group: terraform-infrastructure
+  cancel-in-progress: false
+
+env:
+  TF_IN_AUTOMATION: true
+  TF_INPUT: false
+  TF_VAR_cloudflare_account_id: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+  TF_VAR_domain_name: ${{ vars.CUSTOM_DOMAIN }}
+  CLOUDFLARE_API_TOKEN: ${{ secrets.TERRAFORM_CLOUDFLARE_API_TOKEN }}
+  AWS_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+  AWS_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+  AWS_ENDPOINT_URL_S3: https://${{ secrets.CLOUDFLARE_ACCOUNT_ID }}.r2.cloudflarestorage.com
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    env:
+      PLAN_RUN_ID: ${{ inputs.plan_run_id }}
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - name: Verify reviewed plan run
+        run: |
+          [[ "$PLAN_RUN_ID" =~ ^[0-9]+$ ]] || exit 1
+          gh api "repos/${GITHUB_REPOSITORY}/actions/runs/${PLAN_RUN_ID}" > "$RUNNER_TEMP/plan-run.json"
+          if ! jq -e --arg sha "$GITHUB_SHA" --arg repo "$GITHUB_REPOSITORY" '
+            .name == "Terraform - Plan" and
+            (.path | split("@")[0]) == ".github/workflows/terraform-plan.yml" and
+            .head_repository.full_name == $repo and
+            .head_branch == "main" and
+            .head_sha == $sha and
+            .status == "completed" and
+            .conclusion == "success"
+          ' "$RUNNER_TEMP/plan-run.json" > /dev/null; then
+            echo 'The selected run is not a successful Terraform plan for the current main commit.' >&2
+            exit 1
+          fi
+          main_sha=$(gh api "repos/${GITHUB_REPOSITORY}/git/ref/heads/main" --jq '.object.sha')
+          if [[ "$main_sha" != "$GITHUB_SHA" ]]; then
+            echo 'Main changed after this apply run started. Run a new plan before applying.' >&2
+            exit 1
+          fi
+      - uses: actions/checkout@v7.0.1
+      - uses: hashicorp/setup-terraform@v4.0.1
+        with:
+          terraform_version: 1.10.5
+      - name: Check Cloudflare API token
+        run: |
+          if [[ -z "$CLOUDFLARE_API_TOKEN" ]]; then
+            echo 'TERRAFORM_CLOUDFLARE_API_TOKEN is missing. Add it as a repository Actions secret so the apply job can access it.' >&2
+            exit 1
+          fi
+          if [[ "$CLOUDFLARE_API_TOKEN" == *[[:space:]]* || "$CLOUDFLARE_API_TOKEN" == *\"* || "$CLOUDFLARE_API_TOKEN" == *\'* ]]; then
+            echo 'TERRAFORM_CLOUDFLARE_API_TOKEN must contain only the raw Cloudflare API token, without Bearer, quotes, or whitespace.' >&2
+            exit 1
+          fi
+      - name: Initialize backend
+        run: terraform -chdir=infra init -input=false
+      - name: Get encrypted plan
+        uses: actions/download-artifact@v8.0.2
+        with:
+          name: terraform-plan
+          path: infra
+          run-id: ${{ inputs.plan_run_id }}
+          github-token: ${{ github.token }}
+      - name: Decrypt saved plan
+        env:
+          TF_PLAN_PASSPHRASE: ${{ secrets.TF_PLAN_PASSPHRASE }}
+        run: |
+          test -n "$TF_PLAN_PASSPHRASE"
+          printf '%s' "$TF_PLAN_PASSPHRASE" | gpg --batch --yes --pinentry-mode loopback --passphrase-fd 0 --decrypt --output infra/tfplan infra/tfplan.gpg
+          rm infra/tfplan.gpg
+      - name: Apply reviewed plan
+        run: terraform -chdir=infra apply -input=false -no-color tfplan

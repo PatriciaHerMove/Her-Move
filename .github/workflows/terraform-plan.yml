@@ -1,0 +1,94 @@
+name: Terraform - Plan
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - infra/**
+      - .github/workflows/terraform-plan.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+# Serialize Terraform runs that access the shared state.
+concurrency:
+  group: terraform-infrastructure
+  cancel-in-progress: false
+
+env:
+  TF_IN_AUTOMATION: true
+  TF_INPUT: false
+  TF_VAR_cloudflare_account_id: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+  TF_VAR_domain_name: ${{ vars.CUSTOM_DOMAIN }}
+  CLOUDFLARE_API_TOKEN: ${{ secrets.TERRAFORM_CLOUDFLARE_API_TOKEN }}
+  AWS_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+  AWS_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+  AWS_ENDPOINT_URL_S3: https://${{ secrets.CLOUDFLARE_ACCOUNT_ID }}.r2.cloudflarestorage.com
+
+jobs:
+  plan:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: hashicorp/setup-terraform@v4.0.1
+        with:
+          terraform_version: 1.10.5
+          terraform_wrapper: false
+      - name: Check Cloudflare API token
+        run: |
+          if [[ -z "$CLOUDFLARE_API_TOKEN" ]]; then
+            echo 'TERRAFORM_CLOUDFLARE_API_TOKEN is missing. Add it as a repository Actions secret so the plan job can access it.' >&2
+            exit 1
+          fi
+          if [[ "$CLOUDFLARE_API_TOKEN" == *[[:space:]]* || "$CLOUDFLARE_API_TOKEN" == *\"* || "$CLOUDFLARE_API_TOKEN" == *\'* ]]; then
+            echo 'TERRAFORM_CLOUDFLARE_API_TOKEN must contain only the raw Cloudflare API token, without Bearer, quotes, or whitespace.' >&2
+            exit 1
+          fi
+      - name: Check formatting
+        run: terraform -chdir=infra fmt -check -recursive
+      - name: Initialize backend
+        run: terraform -chdir=infra init -input=false
+      - name: Validate configuration
+        run: terraform -chdir=infra validate -no-color
+      - name: Plan changes
+        id: plan
+        run: |
+          set +e
+          terraform -chdir=infra plan -input=false -no-color -detailed-exitcode -out=tfplan
+          plan_exit_code=$?
+          set -e
+
+          case "$plan_exit_code" in
+            0)
+              echo 'has_changes=false' >> "$GITHUB_OUTPUT"
+              rm -f infra/tfplan
+              ;;
+            2)
+              echo 'has_changes=true' >> "$GITHUB_OUTPUT"
+              ;;
+            *)
+              exit "$plan_exit_code"
+              ;;
+          esac
+      - name: Encrypt saved plan
+        if: steps.plan.outputs.has_changes == 'true'
+        env:
+          TF_PLAN_PASSPHRASE: ${{ secrets.TF_PLAN_PASSPHRASE }}
+        run: |
+          test -n "$TF_PLAN_PASSPHRASE"
+          printf '%s' "$TF_PLAN_PASSPHRASE" | gpg --batch --yes --pinentry-mode loopback --passphrase-fd 0 --symmetric --cipher-algo AES256 --output infra/tfplan.gpg infra/tfplan
+          rm infra/tfplan
+      - name: Save encrypted plan
+        if: steps.plan.outputs.has_changes == 'true'
+        uses: actions/upload-artifact@v7.0.2
+        with:
+          name: terraform-plan
+          path: infra/tfplan.gpg
+          if-no-files-found: error
+          retention-days: 1
+      - name: Show apply instructions
+        if: steps.plan.outputs.has_changes == 'true'
+        run: |
+          echo "Review the plan above. To apply it, run the 'Terraform - Apply plan' workflow with plan run ID ${GITHUB_RUN_ID} within one day." >> "$GITHUB_STEP_SUMMARY"
