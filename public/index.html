@@ -51,10 +51,11 @@
     </section>
     <section id="buchung" class="schedule-section"><div class="section-shell">
       <div class="section-heading"><div><p class="eyebrow">Buchen · Dein Wochenplan</p><h2>Deine Zeit für dich.</h2></div><a class="text-link" href="#preise">Alle Preise ansehen →</a></div>
-      <p class="section-lead">Finde deinen Kurs und das passende Paket. Alle Kurse dauern 60 Minuten und finden bei Gute32 statt.</p>
-      <div class="schedule-grid">
-<section class="schedule-day" aria-label="Kurse am Donnerstag"><h3>Donnerstag</h3><div class="class-row"><div class="class-time">17:00–18:00<span>60 Minuten · Max. 6 Frauen</span></div><strong>Beginner Workout</strong><button class="button button-outline dummy-action" type="button" data-offer="Beginner Workout">Buchen <span class="demo-label">Demo</span></button></div><div class="class-row"><div class="class-time">18:15–19:15<span>60 Minuten · Max. 6 Frauen</span></div><strong>Strength</strong><button class="button button-outline dummy-action" type="button" data-offer="Strength">Buchen <span class="demo-label">Demo</span></button></div></section><section class="schedule-day" aria-label="Kurse am Samstag"><h3>Samstag</h3><div class="class-row"><div class="class-time">10:00–11:00<span>60 Minuten · Max. 6 Frauen</span></div><strong>Core &amp; Back</strong><button class="button button-outline dummy-action" type="button" data-offer="Core &amp; Back">Buchen <span class="demo-label">Demo</span></button></div><div class="class-row"><div class="class-time">11:15–12:15<span>60 Minuten · Max. 6 Frauen</span></div><strong>Full Body</strong><button class="button button-outline dummy-action" type="button" data-offer="Full Body">Buchen <span class="demo-label">Demo</span></button></div></section>      </div>
-      <p class="demo-notice">Vorschau: Die Buchungsbuttons sind Dummys. Es werden keine Plätze reserviert und keine Zahlungen ausgelöst. Die Online-Buchung wird noch eingerichtet.</p>
+      <p class="section-lead">Finde deinen Kurs und buche deinen Platz. Alle Kurse dauern 60 Minuten und finden bei Gute32 statt.</p>
+      <div class="easybook-calendar" aria-label="HER MOVE Kurskalender">
+        <div data-easybook-widget data-tenant="84ee2035-050e-4671-acd5-583b85d3bdba" data-theme="light"></div>
+      </div>
+      <p class="booking-help">Wähle deinen Kurs und buche deinen Platz direkt im Kalender. Kostenfreie Stornierung bis 12 Stunden vor Kursbeginn über das Buchungssystem oder per E-Mail an <a href="mailto:hallo@her-move.de">hallo@her-move.de</a>.</p>
       <aside id="erstgespraech" class="consultation"><div><p class="eyebrow">Lass uns kennenlernen</p><h3>Dein kostenloses Erstgespräch</h3><p>15–20 Minuten via Telefon: Wir besprechen deine Ziele und finden die passenden Kurse für dich.</p></div><div class="consultation-actions"><button class="button button-dark dummy-action" type="button" data-offer="Erstgespräch per WhatsApp">WhatsApp <span class="demo-label">Demo</span></button><button class="button button-outline dummy-action" type="button" data-offer="Erstgespräch per Telefon">Telefon <span class="demo-label">Demo</span></button><small>Kontaktdaten folgen.</small></div></aside>
     </div></section>
     <section id="preise" class="prices-section">
@@ -95,11 +96,12 @@
         <a href="index.html#kontakt">Standort &amp; Anfahrt</a>
         <a href="impressum.html">Impressum</a>
         <a href="datenschutz.html">Datenschutzerklärung</a>
-        <span>Rechtstexte: Vorlagen zur Vervollständigung.<br />Buchung und Kontakt derzeit als Demo.</span>
+        <span>Rechtstexte: Vorlagen zur Vervollständigung.<br />Preis-Auswahl und Kontaktbuttons derzeit als Demo; Kursbuchung über easybook.studio.</span>
       </nav>
     </div>
   </footer>
   <dialog id="demo-dialog" aria-labelledby="demo-title" aria-describedby="demo-description"><button class="dialog-close" type="button" aria-label="Dialog schließen">✕</button><p class="eyebrow">HER MOVE · Vorschau</p><h2 id="demo-title">Bald geht’s los.</h2><p id="demo-description"></p><p>Hier wurde nichts gebucht, versendet oder bezahlt.</p><form method="dialog"><button class="button button-dark">Verstanden</button></form></dialog>
+  <script src="https://easybook.studio/widget.js" async></script>
   <script src="script.js"></script>
 </body>
 </html>
