@@ -1156,3 +1156,48 @@ dialog p {
   .hero-sticker { width:112px; height:112px; font-size:11px; right:0; bottom:36px; padding:12px; }
   .hero-visual::before { content:none; }
 }
+
+/* HER MOVE – Layout und Markenfarben, November 2026 */
+:root { --ink:#2f4a31; --lime:#e7f36a; --pink:#f5c4c5; --sage:#6f8160; --beige:#d8d1c7; --orange:#a45441; --canvas:#d8d1c7; --paper:#eae3da; --rose:#a45441; --soft-sage:#d1d9c9; --soft-pink:#f5c4c5; }
+body { background:var(--beige); color:var(--ink); }
+.site-header { background:transparent; }
+.hero-visual { padding:8px 0 24px; }
+.hero-visual::before,.hero-visual::after,.studio-photo::before,.studio-photo::after { content:none !important; display:none !important; }
+.studio-photo { border-radius:18px; transform:none; box-shadow:none; }
+.hero-sticker,.leaves { display:none !important; }
+.photo-caption { margin:14px 0 0; color:var(--ink); }
+.hero h1 span,.hero-location { color:var(--orange); }
+.hero-facts li { background:#c8d2be; }
+.hero-facts li:nth-child(2) { background:var(--pink); }
+.hero-facts li:nth-child(3) { background:var(--lime); }
+.courses-section { background:var(--beige); }
+.course-card.lime { background:var(--sage); color:#fffaf2; }
+.course-card.pink { background:var(--pink); color:var(--ink); }
+.course-card.beige { background:var(--orange); color:#fffaf2; }
+.course-card.sage { background:#b9c7af; color:var(--ink); }
+.schedule-section { background:#c3cdb9; }
+.booking-layout { display:grid; grid-template-columns:minmax(0,1.85fr) minmax(260px,0.85fr); gap:28px; align-items:start; }
+.booking-calendar-column { min-width:0; }
+.easybook-calendar { min-width:0; border-radius:18px; overflow:hidden; background:#f5efe8; padding:12px; }
+.booking-help { text-align:center; max-width:650px; margin:30px auto 0; font-weight:500; line-height:1.6; }
+.consultation { display:flex; flex-direction:column; align-items:stretch; gap:20px; padding:28px; border:none; border-radius:22px; background:var(--orange); color:#fffaf2; }
+.consultation .eyebrow { color:var(--lime); }
+.consultation h3 { font-size:clamp(25px,2.4vw,32px); }
+.consultation-actions { min-width:0; }
+.consultation-actions .button { background:var(--lime); color:var(--ink); width:100%; text-align:center; }
+.consultation-note { font-size:12px !important; line-height:1.5; opacity:.95; margin:0 !important; }
+.prices-section { background:var(--beige); }
+.price-card { background:#efe8df; }
+.price-card.membership { background:#c7d2bd; }
+.price-card.early-bird { background:#e7f36a; border-color:var(--orange); }
+.about-section { background:#d0d9c9; }
+.about-grid { align-items:start; grid-template-columns:minmax(260px,0.75fr) minmax(0,1.25fr); gap:48px; }
+.about-portrait { position:sticky; top:24px; }
+.about-copy p { font-size:15px; line-height:1.75; }
+.about-copy .credentials { border-left-color:var(--orange); }
+.vision-heading { font-size:clamp(27px,3vw,38px); margin:34px 0 18px; color:var(--orange); }
+.contact-section { background:var(--beige); }
+.contact-grid { align-items:center; }
+.contact-details { border-left:4px solid var(--orange); padding-left:24px; }
+@media(max-width:900px) { .booking-layout { grid-template-columns:1fr; } .consultation { max-width:none; } }
+@media(max-width:700px) { .about-grid { grid-template-columns:1fr; gap:24px; } .about-portrait { position:static; max-width:430px; } .hero-visual { padding:0 0 20px; } .booking-layout { gap:24px; } .easybook-calendar { padding:4px; } .consultation { padding:25px; } .section-heading { gap:10px; } }
