@@ -1373,3 +1373,68 @@ section[id], aside[id] { scroll-margin-top:115px; }
   .hero-banner .hero-organic-shape { width:210px; height:190px; right:-100px; bottom:-80px; }
   .hero-banner .hero-leaf-vibe { max-width:45%; height:48%; opacity:.2; }
 }
+
+/* HERO: Originale zweispaltige Anordnung, Studiofoto ausschließlich rechts
+   in einer einzigen eleganten organischen Form. */
+.hero.hero-side-by-side {
+  position:relative;
+  display:grid;
+  grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);
+  align-items:center;
+  gap:clamp(30px,5vw,85px);
+  width:min(1320px,100%);
+  margin-inline:auto;
+  padding:clamp(55px,7vw,100px) 40px;
+  min-height:610px;
+  overflow:visible;
+  isolation:auto;
+  background:transparent !important;
+  background-image:none !important;
+}
+.hero.hero-side-by-side::before,
+.hero.hero-side-by-side::after { content:none !important; display:none !important; }
+.hero-side-by-side .hero-copy { position:relative; z-index:1; min-width:0; }
+.hero-side-by-side .hero-visual { padding:0 !important; position:relative; min-width:0; }
+.hero-side-by-side .studio-photo {
+  width:100%; aspect-ratio:1.12;
+  position:relative; overflow:hidden;
+  border-radius:44% 56% 43% 57% / 37% 43% 57% 63% !important;
+  background:#6f8160;
+  transform:none !important;
+  box-shadow:none !important;
+}
+.hero-side-by-side .studio-photo img {
+  position:absolute;
+  width:100%; height:325%; top:-81.6667%; left:0;
+  max-width:none; object-fit:fill;
+}
+.hero-side-by-side .hero-location { color:#a45441 !important; }
+.hero-side-by-side h1 { color:#2f4a31 !important; }
+.hero-side-by-side h1 span { color:#a45441 !important; background:none !important; padding:0 !important; }
+.hero-side-by-side .hero-lead,.hero-side-by-side .hero-note,.hero-side-by-side .text-link { color:#2f4a31 !important; }
+.hero-side-by-side .hero-actions .button-dark { background:#2f4a31; color:#fffaf2; }
+.hero-side-by-side .hero-note span { color:#a45441; }
+@media(max-width:800px) {
+  .hero.hero-side-by-side { grid-template-columns:1fr; min-height:0; padding:42px 24px 50px; gap:30px; }
+  .hero-side-by-side .hero-visual { max-width:560px; width:100%; margin-inline:auto; }
+  .hero-side-by-side .studio-photo { aspect-ratio:1.3; }
+}
+
+/* HER MOVE: Alle Preiskarten wieder einheitlich beige */
+.price-card,
+.price-card.membership,
+.price-card.early-bird {
+  background: #d8d1c7 !important;
+  color: #2f4a31 !important;
+  border-color: rgba(47,74,49,.18) !important;
+}
+.price-card .button-outline {
+  color: #2f4a31 !important;
+  border-color: #2f4a31 !important;
+}
+.price-card .button-outline:hover {
+  background: rgba(47,74,49,.10) !important;
+}
+.price-card.early-bird .offer-badge {
+  color: #a45441 !important;
+}
