@@ -18,19 +18,19 @@
 }
 :root {
   --section-space:48px;
-  --ink:#304b32;
-  --lime:#eaf56c;
-  --pink:#f4c5c5;
-  --sage:#738362;
-  --beige:#d9d2c7;
-  --orange:#f64c25;
-  --paper:#fcf8f5;
-  --canvas:#f6eee5;
-  --rose:#81575e;
-  --soft-pink:#efdad4;
-  --soft-sage:#dfe8d7;
-  --line:rgba(48,75,50,.22);
-  --brown:#4c4138;
+  --ink:#2f4a31;
+  --lime:#e7f36a;
+  --pink:#f5c4c5;
+  --sage:#6f8160;
+  --beige:#d8d1c7;
+  --orange:#a45441;
+  --paper:#eee8df;
+  --canvas:#d8d1c7;
+  --rose:#a45441;
+  --soft-pink:#f2dddd;
+  --soft-sage:#d3d9cd;
+  --line:rgba(47,74,49,.22);
+  --brown:#2f4a31;
 }
 * {
   box-sizing:border-box;
@@ -233,9 +233,9 @@ section[id],aside[id] {
   position:relative;
   aspect-ratio:1.5;
   overflow:hidden;
-  border-radius:45% 45% 22px 22px;
+  border-radius:24px;
   background:var(--beige);
-  transform:rotate(-2deg);
+  transform:none;
   box-shadow:0 20px 50px rgba(76,65,56,.08);
 }
 .studio-photo img {
@@ -264,15 +264,7 @@ section[id],aside[id] {
   line-height:1.15;
   transform:rotate(6deg);
 }
-.leaves {
-  height:auto;
-  position:absolute;
-  right:54px;
-  top:0;
-  width:60px;
-  transform:rotate(-65deg);
-  pointer-events:none;
-}
+.leaves { display:none; }
 .photo-caption {
   position:relative;
   color:var(--brown);
@@ -318,16 +310,16 @@ section[id],aside[id] {
   border:1px solid rgba(48,75,50,.06);
 }
 .lime {
-  background:#f0f4de;
+  background:var(--lime);
 }
 .pink {
-  background:#f2d3cf;
+  background:var(--pink);
 }
 .beige {
-  background:#eee1d1;
+  background:#e8ded1;
 }
 .sage {
-  background:#c5d7c1;
+  background:#b9c5af;
   color:var(--ink);
 }
 .card-number {
@@ -361,7 +353,7 @@ section[id],aside[id] {
   white-space:nowrap;
 }
 .schedule-section {
-  background:var(--soft-pink);
+  background:var(--beige);
 }
 .section-lead {
   max-width:660px;
@@ -506,11 +498,11 @@ section[id],aside[id] {
   align-self:start;
 }
 .membership {
-  background:#e2e9d8;
+  background:#cbd5c2;
 }
 .early-bird {
-  background:#edf1d1;
-  border-color:#d5ddac;
+  background:#eef2c7;
+  border-color:var(--sage);
 }
 .offer-badge {
   font-size:10px;
@@ -852,14 +844,7 @@ dialog p {
   font-weight:700;
   line-height:1.5;
 }
-.hero-visual::before {
-  content:'';
-  position:absolute;
-  inset:28px -10px 42px 25px;
-  background:var(--soft-pink);
-  border-radius:48% 48% 35% 38%;
-  transform:rotate(8deg);
-}
+.hero-visual::before { content:none; }
 .hero-sticker span { font-size:1.2em; }
 .main-nav a[href="#buchung"] {
   background:var(--ink);
@@ -981,11 +966,7 @@ dialog p {
     width:100%;
     margin-inline:auto;
   }
-  .leaves {
-    width:50px;
-    right:50px;
-    top:-15px;
-  }
+  .leaves { display:none; }
   .hero-sticker {
     right:0;
     bottom:5px;
@@ -1135,9 +1116,43 @@ dialog p {
   .hero-location { font-size:11px; margin-bottom:18px; }
   .hero-facts { gap:8px; margin-block:23px; }
   .hero-note { font-size:11px; gap:9px; }
-  .hero-visual::before { inset:20px 0 30px 16px; }
+  .hero-visual::before { content:none; }
   .hero-sticker { font-size:15px; }
   .hero-actions { align-items:flex-start; flex-direction:column; gap:17px; }
   .section-heading h2 { font-size:34px; }
   .main-nav a[href="#buchung"] { align-self:flex-start; }
+}
+/* HER MOVE – CI refresh, November 2026 */
+.hero-visual { position:relative; }
+.hero-visual::before, .hero-visual::after, .studio-photo::before, .studio-photo::after { content:none; }
+.studio-photo { border-radius:24px; transform:none; }
+.hero-sticker {
+  position:absolute; right:-10px; bottom:45px; z-index:2;
+  width:148px; height:148px; border-radius:50%;
+  display:grid; place-content:center; text-align:center;
+  padding:18px; background:var(--lime); color:var(--ink);
+  font-size:15px; font-weight:700; line-height:1.25;
+  transform:rotate(7deg); box-shadow:0 10px 24px rgba(47,74,49,.13);
+}
+.booking-help { text-align:center; max-width:680px; margin:26px auto 42px; font-weight:500; }
+.courses-section { background:#e9e1d6; }
+.prices-section { background:#e9e1d6; }
+.schedule-section { background:var(--beige); }
+.about-section { background:#d3d9cd; }
+.contact-section { background:#e9e1d6; }
+.course-card.beige { background:#e1c4b5; }
+.course-card.sage { background:#b9c5af; }
+.hero h1 span, .hero-location, .hero-note span { color:var(--orange); }
+.hero-facts li:nth-child(2) { background:var(--pink); }
+.hero-facts li:nth-child(3) { background:var(--lime); }
+.card-meta a:hover, .text-link:hover { color:var(--orange); }
+.price-card.early-bird { border:2px solid var(--orange); }
+.price-card.early-bird .offer-badge { color:var(--orange); }
+.vision { background:var(--ink); }
+.vision .eyebrow { color:var(--lime); }
+.credentials { border-left-color:var(--orange); }
+:focus-visible { outline-color:var(--orange); }
+@media(max-width:700px) {
+  .hero-sticker { width:112px; height:112px; font-size:11px; right:0; bottom:36px; padding:12px; }
+  .hero-visual::before { content:none; }
 }
