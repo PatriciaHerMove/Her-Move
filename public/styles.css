@@ -1508,3 +1508,66 @@ section[id], aside[id] { scroll-margin-top:115px; }
   .prices-section .consultation { flex-direction: column !important; align-items: stretch !important; padding: 16px 18px !important; gap: 12px !important; }
   .prices-section .consultation-actions .button { width: 100% !important; justify-content: center; }
 }
+
+
+/* HER MOVE – gezielte finale Anpassungen 15.11.2026 */
+/* Kursfarben: nur FULL BODY ist limettengelb */
+.course-card.lime { background: #6f8160 !important; color: #fffaf2 !important; }
+.course-card.pink { background: #f5c4c5 !important; color: #2f4a31 !important; }
+.course-card.beige { background: #a45441 !important; color: #fffaf2 !important; }
+.course-card.sage { background: #e7f36a !important; color: #2f4a31 !important; }
+.course-card.lime .card-meta, .course-card.beige .card-meta { border-color: rgba(255,250,242,.75) !important; }
+.course-card.lime a, .course-card.beige a { color: #fffaf2 !important; }
+
+/* Wochenplan: auf großen Bildschirmen eine durchgehende Zeile */
+@media (min-width: 1000px) {
+  .weekly-heading { display: flex !important; align-items: center !important; justify-content: space-between !important; gap: 20px !important; }
+  .weekly-heading .heading-copy { width: auto !important; max-width: none !important; flex: 0 0 auto !important; white-space: nowrap !important; font-size: clamp(12px, 1.1vw, 16px) !important; line-height: 1.4 !important; text-align: right !important; margin: 0 !important; }
+}
+@media (max-width: 999px) {
+  .weekly-heading .heading-copy { white-space: normal !important; }
+}
+
+/* Preise: helle beige Karten, Early Bird in Original-Terrakotta */
+.prices-section .price-card:not(.early-bird) { background: #f0e9df !important; color: #2f4a31 !important; border-color: rgba(47,74,49,.15) !important; }
+.prices-section .price-card.early-bird { background: #a45441 !important; color: #fffaf2 !important; border-color: #a45441 !important; }
+.prices-section .price-card.early-bird .button-outline { color: #fffaf2 !important; border-color: #fffaf2 !important; }
+
+/* Erstgespräch: ohne Terrakotta-Rahmen oder Terrakotta-Hintergrund */
+.prices-section .consultation {
+  background: #f5c4c5 !important;
+  color: #2f4a31 !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 18px !important;
+  padding: 14px 22px !important;
+  min-height: 0 !important;
+}
+.prices-section .consultation .eyebrow { color: #2f4a31 !important; }
+.prices-section .consultation > div:first-child { flex: 1 1 auto; min-width: 0; }
+.prices-section .consultation > div:first-child > p:last-child { white-space: nowrap !important; font-size: clamp(11px, 1vw, 14px) !important; }
+.prices-section .consultation-actions { flex: 0 0 auto !important; }
+.prices-section .consultation-actions .button { background: #e7f36a !important; color: #2f4a31 !important; border: none !important; width: auto !important; }
+@media (max-width: 1100px) {
+  .prices-section .consultation > div:first-child > p:last-child { white-space: normal !important; }
+}
+@media (max-width: 700px) {
+  .prices-section .consultation { flex-direction: column !important; align-items: stretch !important; }
+  .prices-section .consultation-actions .button { width: 100% !important; }
+}
+
+/* Vision: originaler Wortlaut, dezent hervorgehoben */
+.about-copy .vision-highlight {
+  margin-top: 30px;
+  padding: 24px 28px;
+  border: 2px solid #a45441;
+  border-radius: 24px;
+  background: rgba(245,196,197,.20);
+}
+.about-copy .vision-highlight .vision-heading { margin-top: 0; color: #a45441; }
+.about-copy .vision-highlight p:last-child { margin-bottom: 0; }
+@media (max-width: 600px) { .about-copy .vision-highlight { padding: 20px; } }
