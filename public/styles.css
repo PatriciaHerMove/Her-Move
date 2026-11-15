@@ -1299,3 +1299,77 @@ section[id], aside[id] { scroll-margin-top:115px; }
   .hero-banner h1 { font-size:clamp(40px,10vw,58px); }
   .hero-banner .hero-lead { font-size:15px; }
 }
+
+/* HER MOVE – Farb- und Layoutanpassungen November 2026 */
+:root { --orange:#a45441; --lime:#e7f36a; --pink:#f5c4c5; --sage:#6f8160; }
+.course-card.sage { background:#e7f36a !important; color:#2f4a31 !important; }
+.course-card.beige { background:#a45441 !important; color:#fffaf2 !important; }
+.course-card.beige .card-meta { border-color:rgba(255,250,242,.7); }
+.schedule-section .section-shell > .consultation {
+  display:flex; flex-direction:row; justify-content:space-between; align-items:center;
+  gap:28px; padding:22px 30px; margin-bottom:42px;
+  background:#f5c4c5 !important; color:#2f4a31 !important;
+  border:2px solid #e7f36a; border-radius:24px;
+}
+.schedule-section .consultation .eyebrow { color:#2f4a31; margin-bottom:5px; }
+.schedule-section .consultation h3 { margin:0 0 6px; font-size:clamp(22px,2.4vw,30px); }
+.schedule-section .consultation p { margin-bottom:0; }
+.schedule-section .consultation-actions { min-width:210px; max-width:300px; }
+.schedule-section .consultation-actions .button { background:#e7f36a; color:#2f4a31; }
+.schedule-section .consultation-note { margin-top:8px !important; }
+.weekly-heading { align-items:center; }
+.weekly-heading .heading-copy { max-width:420px; text-align:right; }
+.booking-layout { display:block !important; }
+.booking-calendar-column { width:100%; }
+.price-card, .price-card.membership { background:#6f8160 !important; color:#fffaf2 !important; border-color:#6f8160 !important; }
+.price-card .button-outline { border-color:#fffaf2; color:#fffaf2; }
+.price-card .button-outline:hover { background:rgba(255,255,255,.14); }
+.price-card.early-bird { background:#a45441 !important; color:#fffaf2 !important; border-color:#a45441 !important; }
+.price-card.early-bird .offer-badge { color:#e7f36a !important; }
+.about-copy strong { font-weight:700; }
+@media(max-width:700px) {
+ .schedule-section .section-shell > .consultation { flex-direction:column; align-items:stretch; padding:22px; gap:15px; }
+ .schedule-section .consultation-actions { max-width:none; min-width:0; }
+ .weekly-heading { align-items:flex-start; }
+ .weekly-heading .heading-copy { text-align:left; }
+}
+
+
+/* HER MOVE – Studiofoto sichtbar als echtes Bild, organische Form und Blatt-Akzent */
+.hero.hero-banner {
+  overflow:hidden;
+  background:#2f4a31;
+  background-image:none !important;
+  isolation:isolate;
+}
+.hero-banner .hero-studio-background {
+  position:absolute; inset:0; width:100%; height:100%;
+  object-fit:cover; object-position:center 52%;
+  z-index:-3; display:block; max-width:none;
+}
+.hero.hero-banner::before {
+  content:""; position:absolute; inset:0;
+  background:linear-gradient(90deg,rgba(32,51,34,.83) 0%,rgba(32,51,34,.68) 48%,rgba(32,51,34,.32) 100%);
+  z-index:-2; pointer-events:none;
+}
+.hero-banner .hero-organic-shape {
+  position:absolute; width:clamp(190px,24vw,410px); height:clamp(170px,24vw,370px);
+  right:-7%; bottom:-27%;
+  background:#a45441; opacity:.73;
+  border-radius:49% 51% 64% 36% / 54% 36% 64% 46%;
+  transform:rotate(-19deg); z-index:-1; pointer-events:none;
+}
+.hero-banner .hero-leaf-vibe {
+  position:absolute; right:0; top:0; height:min(85%,610px); width:auto;
+  max-width:38%; object-fit:cover; object-position:right center;
+  opacity:.34; mix-blend-mode:multiply; z-index:-1; pointer-events:none;
+  -webkit-mask-image:linear-gradient(to right,transparent,black 36%);
+  mask-image:linear-gradient(to right,transparent,black 36%);
+}
+.hero-banner .hero-copy { z-index:2; }
+@media(max-width:700px) {
+  .hero.hero-banner { background-image:none !important; }
+  .hero-banner .hero-studio-background { object-position:62% center; }
+  .hero-banner .hero-organic-shape { width:210px; height:190px; right:-100px; bottom:-80px; }
+  .hero-banner .hero-leaf-vibe { max-width:45%; height:48%; opacity:.2; }
+}
