@@ -1796,21 +1796,17 @@ footer .brand-logo-full,
 @media(max-width:380px) { .site-header .brand-logo-full > img { height:29px !important; max-width:46px !important; } .site-header .brand-wordmark { font-size:11px; letter-spacing:.08em; } }
 
 
-/* 16.11.2026 – Logo-Symbol 15 % größer; Schriftzug unverändert */
-.site-header .brand-logo-full > img {
-  height: 48.3px !important;
-  max-width: 80.5px !important;
-  max-height: none !important;
-}
+/* HER MOVE – Logo-Symbol sichtbar 15 % größer, Schriftzug unverändert.
+   Verwendet die tatsächliche Klasse .brand-logo-full. */
+.site-header .brand-logo-full > img,
 .site-footer .brand-logo-full > img {
-  height: 59.8px !important;
-  max-width: 97.75px !important;
+  transform: scale(1.15) !important;
+  transform-origin: center center !important;
+  flex-shrink: 0 !important;
   max-height: none !important;
 }
-@media (max-width: 768px) {
-  .site-header .brand-logo-full > img { height: 37.95px !important; max-width: 59.8px !important; }
-  .site-footer .brand-logo-full > img { height: 51.75px !important; max-width: 80.5px !important; }
-}
-@media (max-width: 380px) {
-  .site-header .brand-logo-full > img { height: 33.35px !important; max-width: 52.9px !important; }
+/* Ausreichend Platz für das vergrößerte Symbol, ohne Beschnitt. */
+.site-header .brand-logo-full,
+.site-footer .brand-logo-full {
+  overflow: visible !important;
 }
