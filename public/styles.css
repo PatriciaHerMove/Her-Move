@@ -1693,3 +1693,8 @@ footer .brand-logo-full,
  .weekly-heading .heading-copy { white-space:normal !important; }
  .prices-section .consultation > div:first-child > p:last-child { white-space:normal !important; }
 }
+
+/* HER MOVE: zusätzliches Raumfoto im Standortbereich */
+.location-room-photo { margin: 24px 0 0; }
+.location-room-photo img { display:block; width:100%; height:auto; aspect-ratio: 4 / 3; object-fit:cover; border-radius: 16px; }
+.location-room-photo figcaption { margin-top:8px; font-size:.9rem; opacity:.8; }
