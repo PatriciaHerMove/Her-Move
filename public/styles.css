@@ -1794,3 +1794,23 @@ footer .brand-logo-full,
 .brand-wordmark { display:inline-block; white-space:nowrap; color:#2f4a31; font-family:inherit; font-size:19px; font-weight:800; letter-spacing:.17em; line-height:1.1; }
 @media(max-width:768px) { .site-header .brand-logo-full { gap:6px !important; } .site-header .brand-logo-full > img { height:33px !important; max-width:52px !important; } .site-header .brand-wordmark { font-size:13px; letter-spacing:.11em; } .site-footer .brand-logo-full > img { height:45px !important; max-width:70px !important; } .site-footer .brand-wordmark { font-size:16px; } }
 @media(max-width:380px) { .site-header .brand-logo-full > img { height:29px !important; max-width:46px !important; } .site-header .brand-wordmark { font-size:11px; letter-spacing:.08em; } }
+
+
+/* 16.11.2026 – Logo-Symbol 15 % größer; Schriftzug unverändert */
+.site-header .brand-logo-full > img {
+  height: 48.3px !important;
+  max-width: 80.5px !important;
+  max-height: none !important;
+}
+.site-footer .brand-logo-full > img {
+  height: 59.8px !important;
+  max-width: 97.75px !important;
+  max-height: none !important;
+}
+@media (max-width: 768px) {
+  .site-header .brand-logo-full > img { height: 37.95px !important; max-width: 59.8px !important; }
+  .site-footer .brand-logo-full > img { height: 51.75px !important; max-width: 80.5px !important; }
+}
+@media (max-width: 380px) {
+  .site-header .brand-logo-full > img { height: 33.35px !important; max-width: 52.9px !important; }
+}
