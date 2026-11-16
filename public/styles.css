@@ -1824,3 +1824,52 @@ footer .brand-logo-full,
 @media (max-width: 380px) {
   .site-header .brand-logo-full > img { width: 82px !important; height: 58px !important; }
 }
+
+
+/* HER MOVE – sichtbares Symbol aus zugeschnittener logo.png (kein Leerraum) */
+.site-header .brand-logo-full > img,
+.site-footer .brand-logo-full > img {
+  display:block !important;
+  width:88px !important;
+  height:60px !important;
+  max-width:none !important;
+  max-height:none !important;
+  object-fit:contain !important;
+  position:static !important;
+  transform:none !important;
+  flex:0 0 auto !important;
+}
+.site-header .brand-logo-full, .site-footer .brand-logo-full {
+  display:inline-flex !important; align-items:center !important;
+  gap:12px !important; overflow:visible !important;
+}
+@media (max-width:768px) {
+ .site-header .brand-logo-full > img, .site-footer .brand-logo-full > img { width:70px !important; height:48px !important; }
+ .site-header .brand-logo-full, .site-footer .brand-logo-full { gap:8px !important; }
+}
+@media (max-width:380px) {
+ .site-header .brand-logo-full > img { width:62px !important; height:43px !important; }
+}
+
+/* HER MOVE – Logo linksbuendig und Schriftzug naeher am Symbol.
+   Ausschliesslich die Markenanordnung, keine Groessen- oder Seitenlayout-Aenderung. */
+.site-header .brand.brand-logo-full,
+.site-footer .brand.brand-logo-full {
+  gap: 0 !important;
+  column-gap: 0 !important;
+  margin-left: -28px !important;
+}
+.site-header .brand.brand-logo-full > img,
+.site-footer .brand.brand-logo-full > img {
+  margin-right: -24px !important;
+}
+@media (max-width: 768px) {
+  .site-header .brand.brand-logo-full,
+  .site-footer .brand.brand-logo-full { margin-left: -8px !important; }
+  .site-header .brand.brand-logo-full > img,
+  .site-footer .brand.brand-logo-full > img { margin-right: -15px !important; }
+}
+@media (max-width: 380px) {
+  .site-header .brand.brand-logo-full { margin-left: 0 !important; }
+  .site-header .brand.brand-logo-full > img { margin-right: -10px !important; }
+}
