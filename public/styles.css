@@ -1787,26 +1787,40 @@ footer .brand-logo-full,
  #kontakt .location-map .map-panel { height:320px !important; }
 }
 
-/* Logo-Symbol und Schriftzug – Header und Footer */
-.site-header .brand-logo-full, .site-footer .brand-logo-full { display:inline-flex !important; align-items:center !important; gap:9px !important; max-width:100% !important; overflow:visible !important; text-decoration:none !important; }
-.site-header .brand-logo-full > img { height:42px !important; width:auto !important; max-width:70px !important; flex:0 0 auto !important; object-fit:contain !important; }
-.site-footer .brand-logo-full > img { height:52px !important; width:auto !important; max-width:85px !important; flex:0 0 auto !important; object-fit:contain !important; }
-.brand-wordmark { display:inline-block; white-space:nowrap; color:#2f4a31; font-family:inherit; font-size:19px; font-weight:800; letter-spacing:.17em; line-height:1.1; }
-@media(max-width:768px) { .site-header .brand-logo-full { gap:6px !important; } .site-header .brand-logo-full > img { height:33px !important; max-width:52px !important; } .site-header .brand-wordmark { font-size:13px; letter-spacing:.11em; } .site-footer .brand-logo-full > img { height:45px !important; max-width:70px !important; } .site-footer .brand-wordmark { font-size:16px; } }
-@media(max-width:380px) { .site-header .brand-logo-full > img { height:29px !important; max-width:46px !important; } .site-header .brand-wordmark { font-size:11px; letter-spacing:.08em; } }
-
-
-/* HER MOVE – Logo-Symbol sichtbar 15 % größer, Schriftzug unverändert.
-   Verwendet die tatsächliche Klasse .brand-logo-full. */
-.site-header .brand-logo-full > img,
-.site-footer .brand-logo-full > img {
-  transform: scale(1.15) !important;
-  transform-origin: center center !important;
-  flex-shrink: 0 !important;
+/* Logo-Anpassung: groessere Darstellung nach frueherer Version.
+   Nur das Bildsymbol wird vergroessert; Schriftzug und restliches Layout bleiben unveraendert. */
+.site-header .brand-logo-full > img {
+  width: 128px !important;
+  height: 82px !important;
+  max-width: none !important;
   max-height: none !important;
+  flex: 0 0 auto !important;
+  object-fit: contain !important;
+  position: static !important;
+  transform: none !important;
 }
-/* Ausreichend Platz für das vergrößerte Symbol, ohne Beschnitt. */
+.site-footer .brand-logo-full > img {
+  width: 128px !important;
+  height: 82px !important;
+  max-width: none !important;
+  max-height: none !important;
+  flex: 0 0 auto !important;
+  object-fit: contain !important;
+  position: static !important;
+  transform: none !important;
+}
 .site-header .brand-logo-full,
 .site-footer .brand-logo-full {
   overflow: visible !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+}
+@media (max-width: 768px) {
+  .site-header .brand-logo-full > img,
+  .site-footer .brand-logo-full > img { width: 96px !important; height: 65px !important; }
+  .site-header .brand-logo-full, .site-footer .brand-logo-full { gap: 7px !important; }
+}
+@media (max-width: 380px) {
+  .site-header .brand-logo-full > img { width: 82px !important; height: 58px !important; }
 }
