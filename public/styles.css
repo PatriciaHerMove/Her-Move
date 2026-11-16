@@ -1571,3 +1571,125 @@ section[id], aside[id] { scroll-margin-top:115px; }
 .about-copy .vision-highlight .vision-heading { margin-top: 0; color: #a45441; }
 .about-copy .vision-highlight p:last-child { margin-bottom: 0; }
 @media (max-width: 600px) { .about-copy .vision-highlight { padding: 20px; } }
+
+/* HER MOVE – Mobile Bildkorrekturen 16.11.2026
+   Bestehende Desktop-Gestaltung und Markenfarben bleiben erhalten. */
+@media (max-width: 800px) {
+  /* Logo nicht in der zu kleinen Ausschnitt-Box abschneiden. */
+  .site-header .brand-icon {
+    width: 68px;
+    height: 62px;
+    overflow: visible;
+    flex: 0 0 68px;
+  }
+  .site-header .brand-icon img {
+    position: absolute;
+    width: 84px;
+    max-width: none;
+    height: auto;
+    left: -8px;
+    top: -7px;
+  }
+  .site-header .brand {
+    min-width: 0;
+    gap: 8px;
+  }
+  /* Das vorhandene Studiofoto in der organischen Form vollständig nutzbar machen. */
+  .hero-side-by-side .studio-photo {
+    aspect-ratio: 1.3;
+    overflow: hidden;
+  }
+  .hero-side-by-side .studio-photo img {
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    object-fit: cover;
+    object-position: center center;
+  }
+}
+@media (max-width: 380px) {
+  .site-header .brand-icon {
+    width: 56px;
+    flex-basis: 56px;
+  }
+  .site-header .brand-icon img {
+    width: 76px;
+    left: -9px;
+  }
+}
+
+/* HER MOVE: vollständiges Logo auf Desktop und Mobilgeräten */
+.site-header .brand-logo-full,
+footer .brand-logo-full,
+.brand-logo-full {
+  display: inline-flex;
+  align-items: center;
+  flex: 0 1 auto;
+  min-width: 0;
+  max-width: 100%;
+  overflow: visible;
+  line-height: 1;
+}
+.brand-logo-full > img {
+  display: block;
+  position: static;
+  width: auto;
+  height: 76px;
+  max-width: 100%;
+  max-height: none;
+  object-fit: contain;
+  object-position: center;
+  flex-shrink: 1;
+}
+.site-header { overflow: visible; }
+@media (max-width: 600px) {
+  .site-header .brand-logo-full > img { height: 62px; width: auto; }
+  .site-header { gap: 8px; }
+  .site-header .brand-logo-full { flex: 0 1 auto; }
+}
+@media (max-width: 380px) {
+  .site-header .brand-logo-full > img { height: 52px; }
+}
+
+/* HER MOVE – finale Anpassungen 16.11.2026 */
+:root { color-scheme: light; }
+/* Kurse: exakte CI-Farben */
+.course-card.lime { background: #6f8160 !important; color: #fffaf2 !important; }
+.course-card.pink { background: #f5c4c5 !important; color: #2f4a31 !important; }
+.course-card.beige { background: #a45441 !important; color: #fffaf2 !important; }
+.course-card.sage { background: #e7f36a !important; color: #2f4a31 !important; }
+.hero-copy h1 span { color: #a45441 !important; }
+/* Preise */
+.prices-section .price-card:not(.early-bird) { background:#f0e9df !important; color:#2f4a31 !important; }
+.prices-section .price-card.early-bird { background:#a45441 !important; color:#fffaf2 !important; }
+.price-book-link { text-decoration:none; display:inline-flex; justify-content:center; align-items:center; }
+/* Erstgespräch: flach, ohne Terrakotta-Rahmen */
+.prices-section .consultation { background:#f5c4c5 !important; border:0 !important; box-shadow:none !important; }
+.prices-section .consultation-actions .button { background:#e7f36a !important; color:#2f4a31 !important; border:0 !important; }
+/* Vision: ohne Kasten oder Rahmen, fließend im Text */
+.about-copy .vision-inline { background:transparent !important; border:0 !important; box-shadow:none !important; border-radius:0 !important; padding:12px 0 0 !important; margin-top:22px !important; }
+.about-copy .vision-inline::before { content:''; display:block; width:56px; height:3px; background:#a45441; border-radius:10px; margin-bottom:18px; }
+.about-copy .vision-inline .vision-heading { color:#a45441; margin-top:0; }
+/* Standort: Bild links unter Adresse, Karte rechts in halber Breite */
+.location-content > h2 { margin-bottom:20px; }
+.location-layout { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); align-items:start; gap:clamp(24px,4vw,64px); }
+.location-left address { font-style:normal; margin:0 0 22px; line-height:1.65; }
+.entrance-photo { margin:0; max-width:100%; }
+.entrance-photo img { display:block; width:100%; height:auto; max-height:460px; object-fit:cover; border-radius:18px; }
+.entrance-photo figcaption { margin-top:10px; font-size:14px; line-height:1.5; color:#2f4a31; }
+.location-map { min-width:0; }
+.location-map .map-panel { width:100%; max-width:100%; }
+.location-map .map-actions { display:flex; flex-wrap:wrap; gap:12px; }
+/* Header-Logo: nie abschneiden */
+.site-header, .site-header .brand-logo-full, footer .brand-logo-full { overflow:visible !important; }
+.brand-logo-full > img { display:block !important; object-fit:contain !important; max-width:100% !important; }
+@media (min-width: 769px) { .site-header .brand-logo-full > img { width:auto !important; height:70px !important; } }
+@media (max-width: 768px) {
+ .location-layout { grid-template-columns:minmax(0,1fr); gap:26px; }
+ .site-header .brand-logo-full > img { width:auto !important; height:54px !important; }
+ .weekly-heading .heading-copy { white-space:normal !important; }
+ .prices-section .consultation > div:first-child > p:last-child { white-space:normal !important; }
+}
