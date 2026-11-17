@@ -1737,54 +1737,39 @@ section[id], aside[id] { scroll-margin-top:115px; }
 }
 
 
-/* HER MOVE – ursprünglicher Header: HTML nutzt wieder .brand-icon. */
-.site-header.section-shell {
-  min-height: 106px !important;
-  padding-block: 0 !important;
-  overflow: visible !important;
+/* HER MOVE – kompakter Original-Header, ohne Bildbeschnitt. */
+.site-header.section-shell { min-height: 106px !important; padding-block: 0 !important; overflow: visible !important; }
+.site-header .brand-original, .site-footer .brand-original {
+  display: inline-flex !important; align-items: center !important;
+  gap: 10px !important; font-size: 24px !important;
+  font-weight: 700 !important; letter-spacing: .16em !important;
+  line-height: 1.2 !important; overflow: visible !important;
 }
-.site-header .brand-original,
-.site-footer .brand-original {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 24px;
-  font-weight: 700;
-  letter-spacing: .16em;
-  line-height: 1.2;
-  height: auto;
-  overflow: visible;
+.site-header .brand-original .brand-icon, .site-footer .brand-original .brand-icon {
+  display: flex !important; align-items: center !important; justify-content: center !important;
+  position: relative !important; width: 55px !important; height: 48px !important;
+  flex: 0 0 55px !important; overflow: visible !important;
 }
-.site-header .brand-original .brand-icon,
-.site-footer .brand-original .brand-icon {
-  width: 55px;
-  height: 38px;
-  flex: 0 0 55px;
-  overflow: hidden;
-  position: relative;
+.site-header .brand-original .brand-icon img, .site-footer .brand-original .brand-icon img {
+  display: block !important; position: static !important;
+  width: 55px !important; height: 48px !important;
+  max-width: 100% !important; max-height: 100% !important;
+  object-fit: contain !important; transform: none !important;
+  margin: 0 !important;
 }
-.site-header .brand-original .brand-icon img,
-.site-footer .brand-original .brand-icon img {
-  position: absolute;
-  max-width: none;
-  width: 84px;
-  height: auto;
-  left: -15px;
-  top: -15px;
-  object-fit: initial;
-}
-.site-header .brand-original .brand-wordmark,
-.site-footer .brand-original .brand-wordmark {
-  white-space: nowrap;
-  font-size: inherit;
-  letter-spacing: inherit;
+.site-header .brand-original .brand-wordmark, .site-footer .brand-original .brand-wordmark {
+  font-size: inherit !important; letter-spacing: inherit !important;
+  white-space: nowrap !important; line-height: 1.2 !important;
 }
 @media (max-width: 700px) {
   .site-header.section-shell { min-height: 85px !important; }
-  .site-header .brand-original { font-size: 21px; }
+  .site-header .brand-original { font-size: 21px !important; gap: 8px !important; }
+  .site-header .brand-original .brand-icon { width: 48px !important; height: 42px !important; flex-basis: 48px !important; }
+  .site-header .brand-original .brand-icon img { width: 48px !important; height: 42px !important; }
   .site-header .main-nav { top: 85px !important; }
 }
 @media (max-width: 380px) {
-  .site-header .brand-original { font-size: 18px; gap: 7px; }
-  .site-header .brand-original .brand-icon { width: 46px; flex-basis: 46px; }
+  .site-header .brand-original { font-size: 18px !important; gap: 7px !important; }
+  .site-header .brand-original .brand-icon { width: 43px !important; height: 38px !important; flex-basis: 43px !important; }
+  .site-header .brand-original .brand-icon img { width: 43px !important; height: 38px !important; }
 }
