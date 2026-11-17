@@ -1755,28 +1755,33 @@ footer .brand-logo-full,
  #kontakt .location-map .map-panel { height:320px !important; }
 }
 
-/* HER MOVE – einheitliche Logodarstellung ohne widersprechende Endregeln.
-   Das HTML nutzt assets/logo.png und einen separaten Schriftzug. */
+/* HER MOVE – einheitlicher Header und Footer, 17.11.2026 */
+.site-header {
+  min-height: 136px !important;
+  overflow: visible !important;
+}
 .site-header .brand.brand-logo-full,
 .site-footer .brand.brand-logo-full {
   display: inline-flex !important;
   align-items: center !important;
-  gap: 7px !important;
-  margin-left: 0 !important;
-  overflow: visible !important;
-  min-width: 0;
+  gap: 10px !important;
+  margin: 0 !important;
+  padding: 0 !important;
   height: auto !important;
+  min-width: 0 !important;
   max-height: none !important;
+  overflow: visible !important;
+  flex-shrink: 0;
 }
 .site-header .brand.brand-logo-full > img,
 .site-footer .brand.brand-logo-full > img {
   display: block !important;
   position: static !important;
-  width: 115px !important;
-  height: 83px !important;
+  width: 82px !important;
+  height: 64px !important;
   max-width: none !important;
   max-height: none !important;
-  flex: 0 0 115px !important;
+  flex: 0 0 82px !important;
   margin: 0 !important;
   padding: 0 !important;
   transform: none !important;
@@ -1785,32 +1790,35 @@ footer .brand-logo-full,
 }
 .site-header .brand.brand-logo-full > .brand-wordmark,
 .site-footer .brand.brand-logo-full > .brand-wordmark {
-  flex: 0 0 auto;
-  white-space: nowrap;
+  flex: 0 0 auto !important;
+  white-space: nowrap !important;
+  margin: 0 !important;
+  transform: none !important;
 }
 @media (max-width: 700px) {
+  .site-header { min-height: 112px !important; gap: 8px !important; }
   .site-header .brand.brand-logo-full,
-  .site-footer .brand.brand-logo-full { gap: 5px !important; }
+  .site-footer .brand.brand-logo-full { gap: 7px !important; }
   .site-header .brand.brand-logo-full > img,
   .site-footer .brand.brand-logo-full > img {
-    width: 91px !important;
-    height: 66px !important;
-    flex-basis: 91px !important;
+    width: 65px !important;
+    height: 52px !important;
+    flex-basis: 65px !important;
   }
   .site-header .brand.brand-logo-full > .brand-wordmark {
-    font-size: clamp(15px, 4vw, 21px);
-    letter-spacing: .12em;
+    font-size: clamp(15px, 3.8vw, 21px) !important;
+    letter-spacing: .12em !important;
   }
 }
 @media (max-width: 380px) {
   .site-header .brand.brand-logo-full > img,
   .site-footer .brand.brand-logo-full > img {
-    width: 75px !important;
-    height: 56px !important;
-    flex-basis: 75px !important;
+    width: 58px !important;
+    height: 46px !important;
+    flex-basis: 58px !important;
   }
   .site-header .brand.brand-logo-full > .brand-wordmark {
-    font-size: 15px;
-    letter-spacing: .08em;
+    font-size: 15px !important;
+    letter-spacing: .08em !important;
   }
 }
