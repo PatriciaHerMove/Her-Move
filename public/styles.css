@@ -1594,76 +1594,64 @@ section[id], aside[id] { scroll-margin-top:115px; }
 .about-copy .vision-inline { background:transparent !important; border:0 !important; box-shadow:none !important; border-radius:0 !important; padding:12px 0 0 !important; margin-top:22px !important; }
 .about-copy .vision-inline::before { content:""; display:block; width:56px; height:3px; background:#a45441; border-radius:10px; margin-bottom:18px; }
 .about-copy .vision-inline .vision-heading { color:#a45441; margin-top:0; }
-/* Standort: Bild links unter Adresse, Karte rechts in halber Breite */
-.location-content > h2 { margin-bottom:20px; }
-.location-layout { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); align-items:start; gap:clamp(24px,4vw,64px); }
-.location-left address { font-style:normal; margin:0 0 22px; line-height:1.65; }
-.entrance-photo { margin:0; max-width:100%; }
-.entrance-photo img { display:block; width:100%; height:auto; max-height:460px; object-fit:cover; border-radius:18px; }
-.entrance-photo figcaption { margin-top:10px; font-size:14px; line-height:1.5; color:#2f4a31; }
-.location-map { min-width:0; }
-.location-map .map-panel { width:100%; max-width:100%; }
-.location-map .map-actions { display:flex; flex-wrap:wrap; gap:12px; }
-/* Header-Logo: nie abschneiden */
-.site-header, .site-header .brand-logo-full, footer .brand-logo-full { overflow:visible !important; }
-
-
-@media (max-width: 768px) {
- .location-layout { grid-template-columns:minmax(0,1fr); gap:26px; }
- 
- .weekly-heading .heading-copy { white-space:normal !important; }
- .prices-section .consultation > div:first-child > p:last-child { white-space:normal !important; }
+/* HER MOVE Standort – zwei gleich grosse Hochformat-Flaechen.
+   Das Original-Eingangsfoto wird NICHT beschnitten. */
+.location-content > h2 { margin-bottom: 20px; }
+#kontakt .location-address {
+  display:block; font-style:normal; line-height:1.65;
+  margin:0 0 22px; padding:0;
 }
-
-/* HER MOVE: zusätzliches Raumfoto im Standortbereich */
-.location-room-photo { margin: 24px 0 0; }
-.location-room-photo img { display:block; width:100%; height:auto; aspect-ratio: 4 / 3; object-fit:cover; border-radius: 16px; }
-.location-room-photo figcaption { margin-top:8px; font-size:.9rem; opacity:.8; }
-
-/* HER MOVE – Korrektur Headerlogo und Standort (Desktop & Handy) */
-
-
-.location-left, .location-map { min-width: 0; }
-.location-left .entrance-photo { margin: 0; width: 100%; }
-.location-left .entrance-photo img {
-  display: block; width: 100%; height: auto;
-  max-height: 460px; object-fit: cover; object-position: center 45%;
-  border-radius: 16px;
+#kontakt .location-layout-portrait {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:clamp(18px,3vw,42px);
+  align-items:start;
 }
-.location-left .entrance-photo figcaption {
-  font-size: 14px; line-height: 1.5; margin-top: 10px;
+#kontakt .location-layout-portrait > .location-left,
+#kontakt .location-layout-portrait > .location-map {
+  min-width:0; width:100%; margin:0; padding:0;
 }
-@media (max-width: 768px) {
-  
-  .location-layout { display: grid; grid-template-columns: minmax(0, 1fr); gap: 24px; }
-  .location-left .entrance-photo img { max-height: none; }
-  
+#kontakt .location-layout-portrait .entrance-photo { margin:0; width:100%; }
+#kontakt .location-layout-portrait .entrance-photo img {
+  display:block; width:100%;
+  aspect-ratio:1345 / 1536;
+  height:auto; max-height:none;
+  object-fit:contain;
+  object-position:center;
+  background:transparent;
+  border-radius:14px;
 }
-
-
-/* Standort: Bild links und Google-Karte rechts, auch auf Mobilgeraeten */
-#kontakt .location-layout { display:grid !important; grid-template-columns:minmax(0,1fr) minmax(0,1fr) !important; gap:clamp(20px,4vw,52px) !important; align-items:start !important; }
-#kontakt .location-left, #kontakt .location-map { min-width:0 !important; width:100% !important; }
-#kontakt .location-left address { display:block; margin:0 0 22px !important; }
-#kontakt .entrance-photo { display:block !important; margin:0 !important; width:100% !important; }
-#kontakt .entrance-photo img { display:block !important; width:100% !important; height:auto !important; max-height:520px !important; object-fit:contain !important; object-position:top center !important; border-radius:14px; }
-#kontakt .entrance-photo figcaption { display:block; margin-top:10px; line-height:1.5; }
-#kontakt .location-map .map-panel { width:100% !important; max-width:100% !important; min-height:300px; }
-@media (max-width:768px) { #kontakt .location-layout { grid-template-columns:minmax(0,1fr) !important; gap:24px !important; } #kontakt .entrance-photo img { max-height:none !important; } }
-
-/* Standortkorrektur: Adresse und Bild linksbuendig; Bild und Karte gleiche Oberkante */
-#kontakt .location-address { display:block; font-style:normal; line-height:1.65; margin:0 0 22px; padding:0; }
-#kontakt .location-layout { display:grid !important; grid-template-columns:minmax(0,1fr) minmax(0,1fr) !important; align-items:start !important; column-gap:clamp(18px,3vw,42px) !important; }
-#kontakt .location-left, #kontakt .location-map, #kontakt .entrance-photo { margin:0 !important; padding:0 !important; min-width:0; width:100%; }
-#kontakt .entrance-photo img { display:block !important; width:100% !important; height:420px !important; max-height:none !important; object-fit:cover !important; object-position:center 42% !important; border-radius:14px; }
-#kontakt .location-map .map-panel { width:100% !important; height:420px !important; min-height:0 !important; max-height:none !important; overflow:hidden; border-radius:14px; }
-#kontakt .location-map .map-panel iframe { display:block; width:100% !important; height:100% !important; min-height:0 !important; }
+#kontakt .location-layout-portrait .entrance-photo figcaption {
+  margin-top:10px; font-size:14px; line-height:1.5;
+}
+#kontakt .location-layout-portrait .map-panel {
+  width:100%; max-width:none;
+  aspect-ratio:1345 / 1536;
+  height:auto; min-height:0; max-height:none;
+  border-radius:14px; overflow:hidden;
+  display:flex; flex-direction:column;
+}
+#kontakt .location-layout-portrait .map-placeholder {
+  flex:1; min-height:0; width:100%;
+  padding:clamp(16px,2vw,30px);
+  overflow-y:auto;
+}
+#kontakt .location-layout-portrait .map-panel iframe {
+  display:block; width:100%; height:100%; min-height:0;
+  flex:1; border:0;
+}
+#kontakt .location-layout-portrait .map-actions {
+  display:flex; flex-wrap:wrap; gap:12px;
+}
 @media (max-width:768px) {
- #kontakt .location-layout { grid-template-columns:minmax(0,1fr) !important; row-gap:24px !important; }
- #kontakt .entrance-photo img { height:320px !important; }
- #kontakt .location-map .map-panel { height:320px !important; }
+  #kontakt .location-layout-portrait {
+    grid-template-columns:minmax(0,1fr);
+    gap:24px;
+  }
+  #kontakt .location-layout-portrait .map-placeholder { padding:20px; }
+  .weekly-heading .heading-copy { white-space:normal !important; }
+  .prices-section .consultation > div:first-child > p:last-child { white-space:normal !important; }
 }
-
 /* HER MOVE – einheitlicher Header und Footer, 17.11.2026 */
 .site-header {
   min-height: 136px !important;
@@ -1680,49 +1668,41 @@ section[id], aside[id] { scroll-margin-top:115px; }
 }
 
 
-/* ==============================================================
-   HER MOVE – EINZIGE LOGO-REGELN (Header und Footer)
-   Alte, widerspruechliche Logo-Regeln wurden entfernt.
-   =============================================================== */
+/* HER MOVE – Logo und Schriftzug: einheitliche Darstellung */
 .site-header {
-  min-height: 136px;
+  min-height: 136px !important;
   overflow: visible;
 }
-.site-header .brand,
-.site-footer .brand {
+.site-header .brand-logo-full,
+.site-footer .brand-logo-full {
   display: inline-flex;
   align-items: center;
   justify-content: flex-start;
-  gap: 16px;
+  gap: 14px;
   flex: 0 0 auto;
   min-width: 0;
   height: auto;
   margin: 0;
   padding: 0;
   overflow: visible;
-  color: var(--ink);
-  font-size: 24px;
-  font-weight: 700;
-  letter-spacing: .16em;
-  line-height: 1.2;
+  line-height: 1;
 }
-.site-header .brand-logo-full,
-.site-footer .brand-logo-full {
-  display: inline-flex;
-  align-items: center;
-  gap: 16px;
+.site-header .brand-mark,
+.site-footer .brand-mark {
+  display: block;
+  flex: 0 0 100px;
+  width: 100px;
+  height: 72px;
   overflow: visible;
-  min-width: 0;
 }
-.site-header .brand-logo-full > img,
-.site-footer .brand-logo-full > img {
+.site-header .brand-mark img,
+.site-footer .brand-mark img {
   display: block;
   position: static;
-  width: 90px;
-  height: 72px;
+  width: 100%;
+  height: 100%;
   max-width: none;
   max-height: none;
-  flex: 0 0 90px;
   object-fit: contain;
   transform: none;
   margin: 0;
@@ -1730,37 +1710,28 @@ section[id], aside[id] { scroll-margin-top:115px; }
 }
 .site-header .brand-wordmark,
 .site-footer .brand-wordmark {
-  display: inline-block;
+  display: block;
   flex: 0 0 auto;
   white-space: nowrap;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: .16em;
+  line-height: 1.2;
   margin: 0;
   padding: 0;
   transform: none;
 }
 @media (max-width: 700px) {
-  .site-header { min-height: 112px; gap: 8px; }
-  .site-header .brand,
-  .site-footer .brand,
+  .site-header { min-height: 112px !important; gap: 8px; }
   .site-header .brand-logo-full,
   .site-footer .brand-logo-full { gap: 9px; }
-  .site-header .brand-logo-full > img,
-  .site-footer .brand-logo-full > img {
-    width: 72px;
-    height: 60px;
-    flex-basis: 72px;
-  }
-  .site-header .brand-wordmark {
-    font-size: clamp(15px, 3.8vw, 21px);
-    letter-spacing: .12em;
-  }
+  .site-header .brand-mark,
+  .site-footer .brand-mark { flex-basis: 80px; width: 80px; height: 58px; }
+  .site-header .brand-wordmark { font-size: clamp(15px, 3.8vw, 21px); letter-spacing: .12em; }
   .main-nav { top: 112px; }
 }
 @media (max-width: 380px) {
-  .site-header .brand-logo-full > img,
-  .site-footer .brand-logo-full > img {
-    width: 62px;
-    height: 52px;
-    flex-basis: 62px;
-  }
+  .site-header .brand-mark,
+  .site-footer .brand-mark { flex-basis: 67px; width: 67px; height: 48px; }
   .site-header .brand-wordmark { font-size: 15px; letter-spacing: .08em; }
 }
