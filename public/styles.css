@@ -1742,38 +1742,6 @@ footer .brand-logo-full,
 #kontakt .location-map .map-panel { width:100% !important; max-width:100% !important; min-height:300px; }
 @media (max-width:768px) { #kontakt .location-layout { grid-template-columns:minmax(0,1fr) !important; gap:24px !important; } #kontakt .entrance-photo img { max-height:none !important; } }
 
-/* Final: Originaldatei logo.png im Header und Footer proportional anzeigen */
-.site-header .brand-logo-full,
-.site-footer .brand-logo-full {
-  display: inline-flex !important;
-  align-items: center !important;
-  overflow: visible !important;
-  min-width: 0 !important;
-}
-.site-header .brand-logo-full > img {
-  display: block !important;
-  width: auto !important;
-  height: 65px !important;
-  max-width: none !important;
-  max-height: none !important;
-  object-fit: contain !important;
-}
-.site-footer .brand-logo-full > img {
-  display: block !important;
-  width: auto !important;
-  height: 55px !important;
-  max-width: 190px !important;
-  max-height: 55px !important;
-  object-fit: contain !important;
-}
-@media (max-width: 768px) {
-  .site-header .brand-logo-full > img { height: 34px !important; max-height: 34px !important; max-width: min(145px, 38vw) !important; }
-  .site-footer .brand-logo-full > img { height: 46px !important; max-height: 46px !important; max-width: 160px !important; }
-}
-@media (max-width: 380px) {
-  .site-header .brand-logo-full > img { height: 30px !important; max-height: 30px !important; max-width: 112px !important; }
-}
-
 /* Standortkorrektur: Adresse und Bild linksbuendig; Bild und Karte gleiche Oberkante */
 #kontakt .location-address { display:block; font-style:normal; line-height:1.65; margin:0 0 22px; padding:0; }
 #kontakt .location-layout { display:grid !important; grid-template-columns:minmax(0,1fr) minmax(0,1fr) !important; align-items:start !important; column-gap:clamp(18px,3vw,42px) !important; }
@@ -1787,126 +1755,62 @@ footer .brand-logo-full,
  #kontakt .location-map .map-panel { height:320px !important; }
 }
 
-/* Logo-Anpassung: groessere Darstellung nach frueherer Version.
-   Nur das Bildsymbol wird vergroessert; Schriftzug und restliches Layout bleiben unveraendert. */
-.site-header .brand-logo-full > img {
-  width: 128px !important;
-  height: 82px !important;
-  max-width: none !important;
-  max-height: none !important;
-  flex: 0 0 auto !important;
-  object-fit: contain !important;
-  position: static !important;
-  transform: none !important;
-}
-.site-footer .brand-logo-full > img {
-  width: 128px !important;
-  height: 82px !important;
-  max-width: none !important;
-  max-height: none !important;
-  flex: 0 0 auto !important;
-  object-fit: contain !important;
-  position: static !important;
-  transform: none !important;
-}
-.site-header .brand-logo-full,
-.site-footer .brand-logo-full {
-  overflow: visible !important;
-  display: inline-flex !important;
-  align-items: center !important;
-  gap: 10px !important;
-}
-@media (max-width: 768px) {
-  .site-header .brand-logo-full > img,
-  .site-footer .brand-logo-full > img { width: 96px !important; height: 65px !important; }
-  .site-header .brand-logo-full, .site-footer .brand-logo-full { gap: 7px !important; }
-}
-@media (max-width: 380px) {
-  .site-header .brand-logo-full > img { width: 82px !important; height: 58px !important; }
-}
-
-
-/* HER MOVE – finale Logogroesse, ohne andere Layoutaenderungen */
-.site-header .brand.brand-logo-full > img,
-.site-footer .brand.brand-logo-full > img {
-  display: block !important;
-  width: 120px !important;
-  height: 82px !important;
-  max-width: none !important;
-  max-height: none !important;
-  object-fit: contain !important;
-  position: static !important;
-  transform: none !important;
-  flex: 0 0 120px !important;
-}
+/* HER MOVE – einheitliche Logodarstellung ohne widersprechende Endregeln.
+   Das HTML nutzt assets/logo.png und einen separaten Schriftzug. */
 .site-header .brand.brand-logo-full,
 .site-footer .brand.brand-logo-full {
   display: inline-flex !important;
   align-items: center !important;
+  gap: 7px !important;
+  margin-left: 0 !important;
   overflow: visible !important;
-}
-@media (max-width: 768px) {
-  .site-header .brand.brand-logo-full > img,
-  .site-footer .brand.brand-logo-full > img {
-    width: 92px !important;
-    height: 64px !important;
-    flex-basis: 92px !important;
-  }
-}
-@media (max-width: 380px) {
-  .site-header .brand.brand-logo-full > img,
-  .site-footer .brand.brand-logo-full > img {
-    width: 80px !important;
-    height: 56px !important;
-    flex-basis: 80px !important;
-  }
-}
-
-/* HER MOVE – Logo linksbuendig und Schriftzug naeher am Symbol.
-   Ausschliesslich die Markenanordnung, keine Groessen- oder Seitenlayout-Aenderung. */
-.site-header .brand.brand-logo-full,
-.site-footer .brand.brand-logo-full {
-  gap: 0 !important;
-  column-gap: 0 !important;
-  margin-left: -28px !important;
-}
-.site-header .brand.brand-logo-full > img,
-.site-footer .brand.brand-logo-full > img {
-  margin-right: -24px !important;
-}
-@media (max-width: 768px) {
-  .site-header .brand.brand-logo-full,
-  .site-footer .brand.brand-logo-full { margin-left: -8px !important; }
-  .site-header .brand.brand-logo-full > img,
-  .site-footer .brand.brand-logo-full > img { margin-right: -15px !important; }
-}
-@media (max-width: 380px) {
-  .site-header .brand.brand-logo-full { margin-left: 0 !important; }
-  .site-header .brand.brand-logo-full > img { margin-right: -10px !important; }
-}
-/* Schriftzug trotz groesserem Symbol direkt daneben */
-.site-header .brand.brand-logo-full > img,
-.site-footer .brand.brand-logo-full > img { margin-right: -24px !important; }
-@media (max-width:768px) {
- .site-header .brand.brand-logo-full > img,
- .site-footer .brand.brand-logo-full > img { margin-right:-15px !important; }
-}
-
-
-/* HER MOVE – Logo-Container ohne Abschneiden (17.11.2026) */
-.site-header .brand-icon,
-.site-footer .brand-icon,
-.site-header .brand-logo-full,
-.site-footer .brand-logo-full {
-  overflow: visible !important;
+  min-width: 0;
   height: auto !important;
   max-height: none !important;
 }
-.site-header .brand {
-  display: flex !important;
-  align-items: center !important;
-  gap: 12px !important;
+.site-header .brand.brand-logo-full > img,
+.site-footer .brand.brand-logo-full > img {
+  display: block !important;
+  position: static !important;
+  width: 115px !important;
+  height: 83px !important;
+  max-width: none !important;
+  max-height: none !important;
+  flex: 0 0 115px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  transform: none !important;
+  object-fit: contain !important;
+  overflow: visible !important;
+}
+.site-header .brand.brand-logo-full > .brand-wordmark,
+.site-footer .brand.brand-logo-full > .brand-wordmark {
+  flex: 0 0 auto;
+  white-space: nowrap;
 }
 @media (max-width: 700px) {
-  .site-header .brand { gap: 10px !important; }
+  .site-header .brand.brand-logo-full,
+  .site-footer .brand.brand-logo-full { gap: 5px !important; }
+  .site-header .brand.brand-logo-full > img,
+  .site-footer .brand.brand-logo-full > img {
+    width: 91px !important;
+    height: 66px !important;
+    flex-basis: 91px !important;
+  }
+  .site-header .brand.brand-logo-full > .brand-wordmark {
+    font-size: clamp(15px, 4vw, 21px);
+    letter-spacing: .12em;
+  }
+}
+@media (max-width: 380px) {
+  .site-header .brand.brand-logo-full > img,
+  .site-footer .brand.brand-logo-full > img {
+    width: 75px !important;
+    height: 56px !important;
+    flex-basis: 75px !important;
+  }
+  .site-header .brand.brand-logo-full > .brand-wordmark {
+    font-size: 15px;
+    letter-spacing: .08em;
+  }
 }
