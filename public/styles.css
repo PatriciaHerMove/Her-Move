@@ -1753,9 +1753,9 @@ footer .brand-logo-full,
 .site-header .brand-logo-full > img {
   display: block !important;
   width: auto !important;
-  height: 42px !important;
-  max-width: min(180px, 38vw) !important;
-  max-height: 42px !important;
+  height: 65px !important;
+  max-width: none !important;
+  max-height: none !important;
   object-fit: contain !important;
 }
 .site-footer .brand-logo-full > img {
