@@ -1,18 +1,18 @@
 @font-face {
   font-family:Roboto;
-  src:url('assets/fonts/roboto-regular.ttf') format('truetype');
+  src:url("assets/fonts/roboto-regular.ttf") format("truetype");
   font-weight:400;
   font-display:swap;
 }
 @font-face {
   font-family:Roboto;
-  src:url('assets/fonts/roboto-bold.ttf') format('truetype');
+  src:url("assets/fonts/roboto-bold.ttf") format("truetype");
   font-weight:700;
   font-display:swap;
 }
 @font-face {
-  font-family:'Roboto Condensed';
-  src:url('assets/fonts/roboto-condensed-bold.ttf') format('truetype');
+  font-family:"Roboto Condensed";
+  src:url("assets/fonts/roboto-condensed-bold.ttf") format("truetype");
   font-weight:700;
   font-display:swap;
 }
@@ -100,37 +100,10 @@ section[id],aside[id] {
   min-height:106px;
   gap:25px;
 }
-.brand {
-  display:flex;
-  align-items:center;
-  gap:10px;
-  font-size:24px;
-  font-weight:700;
-  letter-spacing:.16em;
-  line-height:1.2;
-  flex-shrink:0;
-}
-.brand-icon {
-  width:55px;
-  height:38px;
-  overflow:hidden;
-  position:relative;
-  display:block;
-}
-.brand-icon img {
-  position:absolute;
-  max-width:none;
-  width:84px;
-  height:auto;
-  left:-15px;
-  top:-15px;
-}
-.brand-sub {
-  font-size:8px;
-  letter-spacing:.05em;
-  display:block;
-  margin-top:6px;
-}
+
+
+
+
 .main-nav {
   display:flex;
   align-items:center;
@@ -399,7 +372,7 @@ section[id],aside[id] {
   margin-top:4px;
 }
 .class-row strong {
-  font-family:'Roboto Condensed',sans-serif;
+  font-family:"Roboto Condensed",sans-serif;
   font-size:23px;
   line-height:1.15;
 }
@@ -471,7 +444,7 @@ section[id],aside[id] {
   margin-bottom:25px;
 }
 .price {
-  font-family:'Roboto Condensed',sans-serif;
+  font-family:"Roboto Condensed",sans-serif;
   font-size:53px;
   line-height:1;
   margin-bottom:13px;
@@ -875,9 +848,7 @@ dialog p {
   .main-nav {
     gap:20px;
   }
-  .brand {
-    font-size:21px;
-  }
+  
   .price-grid {
     grid-template-columns:1fr 1fr;
   }
@@ -910,12 +881,8 @@ dialog p {
     min-height:85px;
     position:relative;
   }
-  .brand {
-    font-size:21px;
-  }
-  .brand-sub {
-    font-size:7px;
-  }
+  
+  
   .menu-toggle {
     display:block;
     border:1px solid var(--line);
@@ -1105,8 +1072,8 @@ dialog p {
 }
 @media (max-width: 380px) {
   .site-header { gap: 12px; }
-  .site-header .brand { font-size: 18px; gap: 7px; }
-  .site-header .brand-icon { width: 46px; }
+  
+  
   .menu-toggle { white-space: nowrap; flex-shrink: 0; }
   .hero h1 { font-size: 40px; }
 }
@@ -1262,7 +1229,7 @@ section[id], aside[id] { scroll-margin-top:115px; }
   position:relative;
   isolation:isolate;
   background-color:#2f4a31;
-  background-image:linear-gradient(90deg,rgba(30,51,35,.82) 0%,rgba(30,51,35,.66) 45%,rgba(30,51,35,.28) 100%),url('assets/studio.jpg');
+  background-image:linear-gradient(90deg,rgba(30,51,35,.82) 0%,rgba(30,51,35,.66) 45%,rgba(30,51,35,.28) 100%),url("assets/studio.jpg");
   background-position:center,center 50%;
   background-size:cover;
   background-repeat:no-repeat;
@@ -1293,7 +1260,7 @@ section[id], aside[id] { scroll-margin-top:115px; }
   .hero.hero-banner {
     min-height:640px;
     padding:74px 22px 82px;
-    background-image:linear-gradient(90deg,rgba(30,51,35,.84),rgba(30,51,35,.59)),url('assets/studio.jpg');
+    background-image:linear-gradient(90deg,rgba(30,51,35,.84),rgba(30,51,35,.59)),url("assets/studio.jpg");
     background-position:center,58% center;
   }
   .hero-banner h1 { font-size:clamp(40px,10vw,58px); }
@@ -1576,24 +1543,9 @@ section[id], aside[id] { scroll-margin-top:115px; }
    Bestehende Desktop-Gestaltung und Markenfarben bleiben erhalten. */
 @media (max-width: 800px) {
   /* Logo nicht in der zu kleinen Ausschnitt-Box abschneiden. */
-  .site-header .brand-icon {
-    width: 68px;
-    height: 62px;
-    overflow: visible;
-    flex: 0 0 68px;
-  }
-  .site-header .brand-icon img {
-    position: absolute;
-    width: 84px;
-    max-width: none;
-    height: auto;
-    left: -8px;
-    top: -7px;
-  }
-  .site-header .brand {
-    min-width: 0;
-    gap: 8px;
-  }
+  
+  
+  
   /* Das vorhandene Studiofoto in der organischen Form vollständig nutzbar machen. */
   .hero-side-by-side .studio-photo {
     aspect-ratio: 1.3;
@@ -1610,49 +1562,18 @@ section[id], aside[id] { scroll-margin-top:115px; }
     object-position: center center;
   }
 }
-@media (max-width: 380px) {
-  .site-header .brand-icon {
-    width: 56px;
-    flex-basis: 56px;
-  }
-  .site-header .brand-icon img {
-    width: 76px;
-    left: -9px;
-  }
-}
+
 
 /* HER MOVE: vollständiges Logo auf Desktop und Mobilgeräten */
-.site-header .brand-logo-full,
-footer .brand-logo-full,
-.brand-logo-full {
-  display: inline-flex;
-  align-items: center;
-  flex: 0 1 auto;
-  min-width: 0;
-  max-width: 100%;
-  overflow: visible;
-  line-height: 1;
-}
-.brand-logo-full > img {
-  display: block;
-  position: static;
-  width: auto;
-  height: 76px;
-  max-width: 100%;
-  max-height: none;
-  object-fit: contain;
-  object-position: center;
-  flex-shrink: 1;
-}
+
+
 .site-header { overflow: visible; }
 @media (max-width: 600px) {
-  .site-header .brand-logo-full > img { height: 62px; width: auto; }
+  
   .site-header { gap: 8px; }
-  .site-header .brand-logo-full { flex: 0 1 auto; }
+  
 }
-@media (max-width: 380px) {
-  .site-header .brand-logo-full > img { height: 52px; }
-}
+
 
 /* HER MOVE – finale Anpassungen 16.11.2026 */
 :root { color-scheme: light; }
@@ -1671,7 +1592,7 @@ footer .brand-logo-full,
 .prices-section .consultation-actions .button { background:#e7f36a !important; color:#2f4a31 !important; border:0 !important; }
 /* Vision: ohne Kasten oder Rahmen, fließend im Text */
 .about-copy .vision-inline { background:transparent !important; border:0 !important; box-shadow:none !important; border-radius:0 !important; padding:12px 0 0 !important; margin-top:22px !important; }
-.about-copy .vision-inline::before { content:''; display:block; width:56px; height:3px; background:#a45441; border-radius:10px; margin-bottom:18px; }
+.about-copy .vision-inline::before { content:""; display:block; width:56px; height:3px; background:#a45441; border-radius:10px; margin-bottom:18px; }
 .about-copy .vision-inline .vision-heading { color:#a45441; margin-top:0; }
 /* Standort: Bild links unter Adresse, Karte rechts in halber Breite */
 .location-content > h2 { margin-bottom:20px; }
@@ -1685,11 +1606,11 @@ footer .brand-logo-full,
 .location-map .map-actions { display:flex; flex-wrap:wrap; gap:12px; }
 /* Header-Logo: nie abschneiden */
 .site-header, .site-header .brand-logo-full, footer .brand-logo-full { overflow:visible !important; }
-.brand-logo-full > img { display:block !important; object-fit:contain !important; max-width:100% !important; }
-@media (min-width: 769px) { .site-header .brand-logo-full > img { width:auto !important; height:70px !important; } }
+
+
 @media (max-width: 768px) {
  .location-layout { grid-template-columns:minmax(0,1fr); gap:26px; }
- .site-header .brand-logo-full > img { width:auto !important; height:54px !important; }
+ 
  .weekly-heading .heading-copy { white-space:normal !important; }
  .prices-section .consultation > div:first-child > p:last-child { white-space:normal !important; }
 }
@@ -1700,18 +1621,8 @@ footer .brand-logo-full,
 .location-room-photo figcaption { margin-top:8px; font-size:.9rem; opacity:.8; }
 
 /* HER MOVE – Korrektur Headerlogo und Standort (Desktop & Handy) */
-.site-header .brand-logo-full > img {
-  width: auto !important;
-  height: 48px !important;
-  max-width: min(190px, 36vw) !important;
-  object-fit: contain !important;
-}
-.site-footer .brand-logo-full > img {
-  width: auto !important;
-  height: 74px !important;
-  max-width: 210px !important;
-  object-fit: contain !important;
-}
+
+
 .location-left, .location-map { min-width: 0; }
 .location-left .entrance-photo { margin: 0; width: 100%; }
 .location-left .entrance-photo img {
@@ -1723,14 +1634,12 @@ footer .brand-logo-full,
   font-size: 14px; line-height: 1.5; margin-top: 10px;
 }
 @media (max-width: 768px) {
-  .site-header .brand-logo-full > img { height: 40px !important; max-width: 130px !important; }
+  
   .location-layout { display: grid; grid-template-columns: minmax(0, 1fr); gap: 24px; }
   .location-left .entrance-photo img { max-height: none; }
-  .site-footer .brand-logo-full > img { height: 62px !important; max-width: 175px !important; }
+  
 }
-@media (max-width: 380px) {
-  .site-header .brand-logo-full > img { height: 35px !important; max-width: 112px !important; }
-}
+
 
 /* Standort: Bild links und Google-Karte rechts, auch auf Mobilgeraeten */
 #kontakt .location-layout { display:grid !important; grid-template-columns:minmax(0,1fr) minmax(0,1fr) !important; gap:clamp(20px,4vw,52px) !important; align-items:start !important; }
@@ -1760,65 +1669,98 @@ footer .brand-logo-full,
   min-height: 136px !important;
   overflow: visible !important;
 }
-.site-header .brand.brand-logo-full,
-.site-footer .brand.brand-logo-full {
-  display: inline-flex !important;
-  align-items: center !important;
-  gap: 10px !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  height: auto !important;
-  min-width: 0 !important;
-  max-height: none !important;
-  overflow: visible !important;
-  flex-shrink: 0;
-}
-.site-header .brand.brand-logo-full > img,
-.site-footer .brand.brand-logo-full > img {
-  display: block !important;
-  position: static !important;
-  width: 82px !important;
-  height: 64px !important;
-  max-width: none !important;
-  max-height: none !important;
-  flex: 0 0 82px !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  transform: none !important;
-  object-fit: contain !important;
-  overflow: visible !important;
-}
-.site-header .brand.brand-logo-full > .brand-wordmark,
-.site-footer .brand.brand-logo-full > .brand-wordmark {
-  flex: 0 0 auto !important;
-  white-space: nowrap !important;
-  margin: 0 !important;
-  transform: none !important;
-}
+
+
+
 @media (max-width: 700px) {
   .site-header { min-height: 112px !important; gap: 8px !important; }
-  .site-header .brand.brand-logo-full,
-  .site-footer .brand.brand-logo-full { gap: 7px !important; }
-  .site-header .brand.brand-logo-full > img,
-  .site-footer .brand.brand-logo-full > img {
-    width: 65px !important;
-    height: 52px !important;
-    flex-basis: 65px !important;
+  
+  
+  
+}
+
+
+/* ==============================================================
+   HER MOVE – EINZIGE LOGO-REGELN (Header und Footer)
+   Alte, widerspruechliche Logo-Regeln wurden entfernt.
+   =============================================================== */
+.site-header {
+  min-height: 136px;
+  overflow: visible;
+}
+.site-header .brand,
+.site-footer .brand {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 16px;
+  flex: 0 0 auto;
+  min-width: 0;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  overflow: visible;
+  color: var(--ink);
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: .16em;
+  line-height: 1.2;
+}
+.site-header .brand-logo-full,
+.site-footer .brand-logo-full {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  overflow: visible;
+  min-width: 0;
+}
+.site-header .brand-logo-full > img,
+.site-footer .brand-logo-full > img {
+  display: block;
+  position: static;
+  width: 90px;
+  height: 72px;
+  max-width: none;
+  max-height: none;
+  flex: 0 0 90px;
+  object-fit: contain;
+  transform: none;
+  margin: 0;
+  padding: 0;
+}
+.site-header .brand-wordmark,
+.site-footer .brand-wordmark {
+  display: inline-block;
+  flex: 0 0 auto;
+  white-space: nowrap;
+  margin: 0;
+  padding: 0;
+  transform: none;
+}
+@media (max-width: 700px) {
+  .site-header { min-height: 112px; gap: 8px; }
+  .site-header .brand,
+  .site-footer .brand,
+  .site-header .brand-logo-full,
+  .site-footer .brand-logo-full { gap: 9px; }
+  .site-header .brand-logo-full > img,
+  .site-footer .brand-logo-full > img {
+    width: 72px;
+    height: 60px;
+    flex-basis: 72px;
   }
-  .site-header .brand.brand-logo-full > .brand-wordmark {
-    font-size: clamp(15px, 3.8vw, 21px) !important;
-    letter-spacing: .12em !important;
+  .site-header .brand-wordmark {
+    font-size: clamp(15px, 3.8vw, 21px);
+    letter-spacing: .12em;
   }
+  .main-nav { top: 112px; }
 }
 @media (max-width: 380px) {
-  .site-header .brand.brand-logo-full > img,
-  .site-footer .brand.brand-logo-full > img {
-    width: 58px !important;
-    height: 46px !important;
-    flex-basis: 58px !important;
+  .site-header .brand-logo-full > img,
+  .site-footer .brand-logo-full > img {
+    width: 62px;
+    height: 52px;
+    flex-basis: 62px;
   }
-  .site-header .brand.brand-logo-full > .brand-wordmark {
-    font-size: 15px !important;
-    letter-spacing: .08em !important;
-  }
+  .site-header .brand-wordmark { font-size: 15px; letter-spacing: .08em; }
 }
