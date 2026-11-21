@@ -1773,3 +1773,19 @@ section[id], aside[id] { scroll-margin-top:115px; }
   .site-header .brand-original .brand-icon { width: 43px !important; height: 38px !important; flex-basis: 43px !important; }
   .site-header .brand-original .brand-icon img { width: 43px !important; height: 38px !important; }
 }
+
+/* HER MOVE – einheitliches Logo ohne Beschnitt auf allen Seiten */
+.site-header .brand-original, .site-footer .brand-original {display:inline-flex!important;align-items:center!important;gap:10px!important;overflow:visible!important;flex-shrink:0!important;}
+.site-header .brand-original .brand-icon, .site-footer .brand-original .brand-icon {position:static!important;display:flex!important;align-items:center!important;justify-content:center!important;width:58px!important;height:58px!important;flex:0 0 58px!important;overflow:visible!important;}
+.site-header .brand-original .brand-icon img, .site-footer .brand-original .brand-icon img {position:static!important;display:block!important;width:100%!important;height:100%!important;max-width:100%!important;max-height:100%!important;object-fit:contain!important;object-position:center!important;transform:none!important;inset:auto!important;margin:0!important;clip-path:none!important;}
+.site-header .brand-original .brand-wordmark, .site-footer .brand-original .brand-wordmark {white-space:nowrap!important;line-height:1.15!important;}
+.site-header.section-shell {min-height:96px!important;}
+@media(max-width:700px){.site-header.section-shell{min-height:82px!important}.site-header .brand-original .brand-icon,.site-footer .brand-original .brand-icon{width:46px!important;height:46px!important;flex-basis:46px!important}.site-header .brand-original,.site-footer .brand-original{gap:8px!important}.site-header .main-nav{top:82px!important}}
+@media(max-width:380px){.site-header .brand-original .brand-icon,.site-footer .brand-original .brand-icon{width:42px!important;height:42px!important;flex-basis:42px!important}}
+.contact-actions {display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin:24px 0;}
+.contact-actions .button {text-align:center;}
+.social-link {font-weight:700;text-decoration:underline;text-underline-offset:4px;}
+.legal-content .legal-note {background:#f0e9df;border-left:3px solid #a45441;padding:14px 18px;border-radius:8px;}
+.legal-content h2 {margin-top:34px;}
+.booking-direct-link {margin:14px 0 4px;font-size:14px;}
+.booking-direct-link a {text-decoration:underline;text-underline-offset:4px;font-weight:700;}
