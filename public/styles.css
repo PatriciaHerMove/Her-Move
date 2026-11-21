@@ -1802,3 +1802,35 @@ section[id], aside[id] { scroll-margin-top:115px; }
   object-fit: cover !important;
   object-position: center top !important;
 }
+
+
+/* HER MOVE 21.11 – einheitliche finale Designregeln */
+.site-header, .site-footer {background:#203b2b !important;color:#d8d1c7 !important;}
+.site-header.section-shell {width:100% !important;max-width:none !important;padding-left:max(22px,calc((100vw - 1160px)/2)) !important;padding-right:max(22px,calc((100vw - 1160px)/2)) !important;min-height:88px !important;}
+.site-header .main-nav a {text-transform:uppercase !important;color:#d8d1c7 !important;}
+.site-header .main-nav a[href$="#buchung"] {background:#d8d1c7 !important;color:#203b2b !important;}
+.site-header .main-nav a:hover {border-color:#d8d1c7 !important;}
+.site-header .brand-original,.site-footer .brand-original {color:#d8d1c7 !important;gap:9px !important;font-size:22px !important;}
+.site-header .brand-original .brand-icon,.site-footer .brand-original .brand-icon {position:static !important;display:flex !important;width:46px !important;height:46px !important;flex:0 0 46px !important;overflow:visible !important;align-items:center !important;justify-content:center !important;}
+.site-header .brand-original .brand-icon img,.site-footer .brand-original .brand-icon img {position:static !important;inset:auto !important;display:block !important;width:46px !important;height:46px !important;max-width:100% !important;max-height:100% !important;object-fit:contain !important;object-position:center !important;clip-path:none !important;transform:none !important;}
+.site-header .brand-original .brand-wordmark,.site-footer .brand-original .brand-wordmark {color:#d8d1c7 !important;font-size:22px !important;}
+.site-footer .footer-links a,.site-footer .footer-inner p {color:#d8d1c7 !important;}
+.site-header .menu-toggle {color:#d8d1c7 !important;border-color:#d8d1c7 !important;}
+.course-card.sage,.course-card.lime,.price-card.early-bird,.price-card.membership,.schedule-section,.consultation-actions .button,.prices-section .consultation-actions .button {background:#5f6b52 !important;color:#d8d1c7 !important;}
+.course-card.sage a,.course-card.lime a {color:#d8d1c7 !important;}
+.hero-facts li:nth-child(3) {background:#5f6b52 !important;color:#d8d1c7 !important;}
+.vision .button {background:#5f6b52 !important;color:#d8d1c7 !important;}
+.hero-side-by-side .studio-photo img {position:absolute !important;left:0 !important;top:-81.6667% !important;width:100% !important;height:325% !important;max-width:none !important;object-fit:fill !important;object-position:center !important;transform:none !important;}
+.contact-details .button {margin-top:14px;background:#203b2b;color:#d8d1c7;}
+.legal-content .legal-note {display:none !important;}
+@media(max-width:800px){
+ .hero-side-by-side .studio-photo img {top:-76% !important;height:325% !important;object-fit:fill !important;}
+}
+@media(max-width:700px){
+ .site-header.section-shell {min-height:78px !important;}
+ .site-header .brand-original,.site-footer .brand-original {font-size:18px !important;}
+ .site-header .brand-original .brand-icon,.site-footer .brand-original .brand-icon {width:40px !important;height:40px !important;flex-basis:40px !important;}
+ .site-header .brand-original .brand-icon img,.site-footer .brand-original .brand-icon img {width:40px !important;height:40px !important;}
+ .site-header .brand-original .brand-wordmark,.site-footer .brand-original .brand-wordmark {font-size:18px !important;}
+ .site-header .main-nav {top:78px !important;background:#203b2b !important;}
+}
