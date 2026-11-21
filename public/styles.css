@@ -1789,3 +1789,16 @@ section[id], aside[id] { scroll-margin-top:115px; }
 .legal-content h2 {margin-top:34px;}
 .booking-direct-link {margin:14px 0 4px;font-size:14px;}
 .booking-direct-link a {text-decoration:underline;text-underline-offset:4px;font-weight:700;}
+
+/* HER MOVE – Studiofoto: schwarzen unteren Bildbereich ausblenden.
+   Das Foto wird am oberen Rand verankert und innerhalb der organischen Form vergrößert. */
+.hero-side-by-side .studio-photo img {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 185% !important;
+  max-width: none !important;
+  object-fit: cover !important;
+  object-position: center top !important;
+}
