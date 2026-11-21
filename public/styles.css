@@ -1834,3 +1834,58 @@ section[id], aside[id] { scroll-margin-top:115px; }
  .site-header .brand-original .brand-wordmark,.site-footer .brand-original .brand-wordmark {font-size:18px !important;}
  .site-header .main-nav {top:78px !important;background:#203b2b !important;}
 }
+
+
+/* HER MOVE 22.11: gezielte Korrekturen – letzte Regeln sind maßgeblich */
+/* Das bisherige logo.png ist bereits in der Bilddatei abgeschnitten.
+   Daher verwenden alle Seiten das vollständige Logo-Asset. */
+.site-header .brand-original .brand-icon,.site-footer .brand-original .brand-icon {
+  width:58px!important;height:46px!important;flex:0 0 58px!important;
+  overflow:visible!important;position:static!important;
+}
+.site-header .brand-original .brand-icon img,.site-footer .brand-original .brand-icon img {
+  display:block!important;width:58px!important;height:46px!important;max-width:none!important;
+  object-fit:contain!important;object-position:center!important;position:static!important;
+  clip-path:none!important;transform:none!important;
+}
+.site-header .main-nav a[href$="#buchung"],.site-header .main-nav a[href="#buchung"] {
+  background:transparent!important;color:#d8d1c7!important;border-radius:0!important;
+  padding:10px 0!important;
+}
+.site-header .main-nav a[href$="#buchung"]:hover {border-color:#d8d1c7!important;}
+/* Gelb/Lime bleibt Gelb. Nur die zuvor hellgrüne Über-mich-Fläche wird Salbeigrün. */
+.course-card.lime,.price-card.early-bird {background:#e7f36a!important;color:#203b2b!important;}
+.course-card.lime a,.price-card.early-bird a {color:#203b2b!important;}
+.hero-facts li:nth-child(3),.consultation-actions .button,.vision .button {background:#e7f36a!important;color:#203b2b!important;}
+.about-section {background:#5f6b52!important;color:#d8d1c7!important;}
+.about-section .about-copy,.about-section .about-copy p,.about-section .about-copy h2,
+.about-section .about-copy h3,.about-section .about-copy .vision-heading,
+.about-section .eyebrow,.about-section .about-portrait figcaption {color:#d8d1c7!important;}
+.about-section .credentials {border-left-color:#e7f36a!important;}
+/* E-Mail klein und direkt neben der Adresse, Instagram ausschließlich in Header/Footer */
+.location-address {display:inline-block;vertical-align:middle;margin-right:20px;}
+.contact-mail-link {display:inline-flex;vertical-align:middle;align-items:center;
+  font-size:13px;font-weight:700;text-decoration:underline;text-underline-offset:4px;
+  padding:8px 0;color:#203b2b;}
+.contact-mail-link:hover {color:#a45441;}
+.instagram-icon-link {display:inline-flex!important;align-items:center;justify-content:center;
+  width:30px;min-width:30px;padding:4px!important;color:#d8d1c7!important;
+  border:0!important;background:transparent!important;text-decoration:none!important;}
+.instagram-icon-link svg {width:19px;height:19px;display:block;}
+.footer-links .instagram-icon-link {width:30px;}
+/* Mobil kompakt, Logo vollständig und E-Mail direkt neben/bei Adresse */
+@media(max-width:700px){
+ .site-header .brand-original .brand-icon,.site-footer .brand-original .brand-icon {width:48px!important;height:40px!important;flex-basis:48px!important;}
+ .site-header .brand-original .brand-icon img,.site-footer .brand-original .brand-icon img {width:48px!important;height:40px!important;}
+ .location-address {margin-right:12px;}
+ .contact-mail-link {font-size:12px;}
+}
+
+/* HER MOVE: transparentes Logo ohne weiße Hinterlegung */
+.site-header .brand-original, .site-footer .brand-original,
+.site-header .brand-original .brand-icon, .site-footer .brand-original .brand-icon,
+.site-header .brand-original .brand-icon img, .site-footer .brand-original .brand-icon img {
+ background:transparent!important; background-color:transparent!important; box-shadow:none!important;
+}
+.site-header .brand-original .brand-icon::before,.site-header .brand-original .brand-icon::after,
+.site-footer .brand-original .brand-icon::before,.site-footer .brand-original .brand-icon::after {content:none!important;display:none!important;}
