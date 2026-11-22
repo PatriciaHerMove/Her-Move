@@ -1916,3 +1916,41 @@ section[id], aside[id] { scroll-margin-top:115px; }
 .site-header .brand-original .brand-icon,.site-footer .brand-original .brand-icon {width:50px!important;height:40px!important;flex-basis:50px!important;}
 .site-header .brand-original .brand-icon img,.site-footer .brand-original .brand-icon img {width:50px!important;height:40px!important;}
 }
+
+/* HER MOVE – ausschließlich Kontaktbutton-Ausrichtung und scharfe Studiokontur */
+@media (min-width: 701px) {
+  #kontakt .location-content {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    column-gap: 24px;
+    align-items: end;
+  }
+  #kontakt .location-content > h2,
+  #kontakt .location-content > .location-layout {
+    grid-column: 1 / -1;
+  }
+  #kontakt .location-content > .location-address {
+    grid-column: 1;
+    grid-row: 2;
+    margin: 0 !important;
+    align-self: end;
+  }
+  #kontakt .location-content > .contact-mail-link {
+    grid-column: 2;
+    grid-row: 2;
+    align-self: end;
+    justify-self: end;
+    margin: 0 !important;
+  }
+}
+/* Auf schmalen Bildschirmen bleibt die natürliche Reihenfolge erhalten. */
+@media (max-width: 700px) {
+  #kontakt .location-content > .contact-mail-link {
+    margin-top: 0 !important;
+  }
+}
+/* Die bereits vorhandene organische Form bleibt erhalten;
+   zusätzlich wird der Rand direkt an der Form beschnitten. */
+.hero-side-by-side .studio-photo {
+  clip-path: inset(0 round 44% 56% 43% 57% / 37% 43% 57% 63%);
+}
