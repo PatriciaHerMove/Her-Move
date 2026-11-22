@@ -8,7 +8,7 @@
 <meta content="HER MOVE: Kleingruppentraining für maximal sechs Frauen in Berlin-Köpenick. Beginner Workout, Strength, Core &amp; Back und Full Body mit Patricia." name="description"/>
 <meta content="#203b2b" name="theme-color"/>
 <title>HER MOVE | Kleingruppentraining für Frauen in Berlin-Köpenick</title>
-<link href="styles.css?v=20261122-abstand-studiokante" rel="stylesheet">
+<link href="styles.css?v=20261122-studio-bildausschnitt" rel="stylesheet">
 <style>
 /* Footer: Kontaktlinks einheitlich ausrichten */
 .footer-links > a[href^="mailto:"] { text-decoration: none !important; display: inline-flex; align-items: center; gap: 6px; }
@@ -38,7 +38,37 @@
   background: #a6533e !important; color: white !important;
 }
 .contact-section .contact-mail-link svg {flex: 0 0 auto;}
-</style></head>
+</style><style id="hermove-studio-foto-fix">
+/* Nur das Studiofoto: runder Ausschnitt, schwarze untere Fläche abgeschnitten. */
+.hero .hero-visual .studio-photo {
+  position: relative !important;
+  width: 100% !important;
+  aspect-ratio: 1 / 1 !important;
+  height: auto !important;
+  border-radius: 50% !important;
+  clip-path: circle(50% at 50% 50%) !important;
+  overflow: hidden !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  mask-image: none !important;
+  -webkit-mask-image: none !important;
+}
+.hero .hero-visual .studio-photo img {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 160% !important;
+  max-width: none !important;
+  object-fit: cover !important;
+  object-position: center top !important;
+  transform: none !important;
+  border-radius: 0 !important;
+  clip-path: none !important;
+  filter: none !important;
+}
+</style>
+</head>
 <body>
 <a class="skip-link" href="#inhalt">Zum Inhalt</a>
 <header class="site-header section-shell">
