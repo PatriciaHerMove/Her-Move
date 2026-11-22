@@ -1954,7 +1954,7 @@ section[id], aside[id] { scroll-margin-top:115px; }
 .hero-side-by-side .studio-photo {
   clip-path: inset(0 round 44% 56% 43% 57% / 37% 43% 57% 63%);
 }
-/* HER MOVE: nur Abstand zwischen Adresse/Mailbutton und Eingangsfoto/Karte */
+/* HER MOVE: nur Abstand oberhalb Eingangsfoto und Karte */
 #kontakt .location-content > .location-layout {
-  margin-top: 36px !important;
+  padding-top: 40px !important;
 }
