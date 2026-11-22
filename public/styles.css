@@ -1594,76 +1594,64 @@ section[id], aside[id] { scroll-margin-top:115px; }
 .about-copy .vision-inline { background:transparent !important; border:0 !important; box-shadow:none !important; border-radius:0 !important; padding:12px 0 0 !important; margin-top:22px !important; }
 .about-copy .vision-inline::before { content:""; display:block; width:56px; height:3px; background:#a45441; border-radius:10px; margin-bottom:18px; }
 .about-copy .vision-inline .vision-heading { color:#a45441; margin-top:0; }
-/* Standort: Bild links unter Adresse, Karte rechts in halber Breite */
-.location-content > h2 { margin-bottom:20px; }
-.location-layout { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); align-items:start; gap:clamp(24px,4vw,64px); }
-.location-left address { font-style:normal; margin:0 0 22px; line-height:1.65; }
-.entrance-photo { margin:0; max-width:100%; }
-.entrance-photo img { display:block; width:100%; height:auto; max-height:460px; object-fit:cover; border-radius:18px; }
-.entrance-photo figcaption { margin-top:10px; font-size:14px; line-height:1.5; color:#2f4a31; }
-.location-map { min-width:0; }
-.location-map .map-panel { width:100%; max-width:100%; }
-.location-map .map-actions { display:flex; flex-wrap:wrap; gap:12px; }
-/* Header-Logo: nie abschneiden */
-.site-header, .site-header .brand-logo-full, footer .brand-logo-full { overflow:visible !important; }
-
-
-@media (max-width: 768px) {
- .location-layout { grid-template-columns:minmax(0,1fr); gap:26px; }
- 
- .weekly-heading .heading-copy { white-space:normal !important; }
- .prices-section .consultation > div:first-child > p:last-child { white-space:normal !important; }
+/* HER MOVE Standort – zwei gleich grosse Hochformat-Flaechen.
+   Das Original-Eingangsfoto wird NICHT beschnitten. */
+.location-content > h2 { margin-bottom: 20px; }
+#kontakt .location-address {
+  display:block; font-style:normal; line-height:1.65;
+  margin:0 0 22px; padding:0;
 }
-
-/* HER MOVE: zusätzliches Raumfoto im Standortbereich */
-.location-room-photo { margin: 24px 0 0; }
-.location-room-photo img { display:block; width:100%; height:auto; aspect-ratio: 4 / 3; object-fit:cover; border-radius: 16px; }
-.location-room-photo figcaption { margin-top:8px; font-size:.9rem; opacity:.8; }
-
-/* HER MOVE – Korrektur Headerlogo und Standort (Desktop & Handy) */
-
-
-.location-left, .location-map { min-width: 0; }
-.location-left .entrance-photo { margin: 0; width: 100%; }
-.location-left .entrance-photo img {
-  display: block; width: 100%; height: auto;
-  max-height: 460px; object-fit: cover; object-position: center 45%;
-  border-radius: 16px;
+#kontakt .location-layout-portrait {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:clamp(18px,3vw,42px);
+  align-items:start;
 }
-.location-left .entrance-photo figcaption {
-  font-size: 14px; line-height: 1.5; margin-top: 10px;
+#kontakt .location-layout-portrait > .location-left,
+#kontakt .location-layout-portrait > .location-map {
+  min-width:0; width:100%; margin:0; padding:0;
 }
-@media (max-width: 768px) {
-  
-  .location-layout { display: grid; grid-template-columns: minmax(0, 1fr); gap: 24px; }
-  .location-left .entrance-photo img { max-height: none; }
-  
+#kontakt .location-layout-portrait .entrance-photo { margin:0; width:100%; }
+#kontakt .location-layout-portrait .entrance-photo img {
+  display:block; width:100%;
+  aspect-ratio:1345 / 1536;
+  height:auto; max-height:none;
+  object-fit:contain;
+  object-position:center;
+  background:transparent;
+  border-radius:14px;
 }
-
-
-/* Standort: Bild links und Google-Karte rechts, auch auf Mobilgeraeten */
-#kontakt .location-layout { display:grid !important; grid-template-columns:minmax(0,1fr) minmax(0,1fr) !important; gap:clamp(20px,4vw,52px) !important; align-items:start !important; }
-#kontakt .location-left, #kontakt .location-map { min-width:0 !important; width:100% !important; }
-#kontakt .location-left address { display:block; margin:0 0 22px !important; }
-#kontakt .entrance-photo { display:block !important; margin:0 !important; width:100% !important; }
-#kontakt .entrance-photo img { display:block !important; width:100% !important; height:auto !important; max-height:520px !important; object-fit:contain !important; object-position:top center !important; border-radius:14px; }
-#kontakt .entrance-photo figcaption { display:block; margin-top:10px; line-height:1.5; }
-#kontakt .location-map .map-panel { width:100% !important; max-width:100% !important; min-height:300px; }
-@media (max-width:768px) { #kontakt .location-layout { grid-template-columns:minmax(0,1fr) !important; gap:24px !important; } #kontakt .entrance-photo img { max-height:none !important; } }
-
-/* Standortkorrektur: Adresse und Bild linksbuendig; Bild und Karte gleiche Oberkante */
-#kontakt .location-address { display:block; font-style:normal; line-height:1.65; margin:0 0 22px; padding:0; }
-#kontakt .location-layout { display:grid !important; grid-template-columns:minmax(0,1fr) minmax(0,1fr) !important; align-items:start !important; column-gap:clamp(18px,3vw,42px) !important; }
-#kontakt .location-left, #kontakt .location-map, #kontakt .entrance-photo { margin:0 !important; padding:0 !important; min-width:0; width:100%; }
-#kontakt .entrance-photo img { display:block !important; width:100% !important; height:420px !important; max-height:none !important; object-fit:cover !important; object-position:center 42% !important; border-radius:14px; }
-#kontakt .location-map .map-panel { width:100% !important; height:420px !important; min-height:0 !important; max-height:none !important; overflow:hidden; border-radius:14px; }
-#kontakt .location-map .map-panel iframe { display:block; width:100% !important; height:100% !important; min-height:0 !important; }
+#kontakt .location-layout-portrait .entrance-photo figcaption {
+  margin-top:10px; font-size:14px; line-height:1.5;
+}
+#kontakt .location-layout-portrait .map-panel {
+  width:100%; max-width:none;
+  aspect-ratio:1345 / 1536;
+  height:auto; min-height:0; max-height:none;
+  border-radius:14px; overflow:hidden;
+  display:flex; flex-direction:column;
+}
+#kontakt .location-layout-portrait .map-placeholder {
+  flex:1; min-height:0; width:100%;
+  padding:clamp(16px,2vw,30px);
+  overflow-y:auto;
+}
+#kontakt .location-layout-portrait .map-panel iframe {
+  display:block; width:100%; height:100%; min-height:0;
+  flex:1; border:0;
+}
+#kontakt .location-layout-portrait .map-actions {
+  display:flex; flex-wrap:wrap; gap:12px;
+}
 @media (max-width:768px) {
- #kontakt .location-layout { grid-template-columns:minmax(0,1fr) !important; row-gap:24px !important; }
- #kontakt .entrance-photo img { height:320px !important; }
- #kontakt .location-map .map-panel { height:320px !important; }
+  #kontakt .location-layout-portrait {
+    grid-template-columns:minmax(0,1fr);
+    gap:24px;
+  }
+  #kontakt .location-layout-portrait .map-placeholder { padding:20px; }
+  .weekly-heading .heading-copy { white-space:normal !important; }
+  .prices-section .consultation > div:first-child > p:last-child { white-space:normal !important; }
 }
-
 /* HER MOVE – einheitlicher Header und Footer, 17.11.2026 */
 .site-header {
   min-height: 136px !important;
@@ -1680,49 +1668,41 @@ section[id], aside[id] { scroll-margin-top:115px; }
 }
 
 
-/* ==============================================================
-   HER MOVE – EINZIGE LOGO-REGELN (Header und Footer)
-   Alte, widerspruechliche Logo-Regeln wurden entfernt.
-   =============================================================== */
+/* HER MOVE – Logo und Schriftzug: einheitliche Darstellung */
 .site-header {
-  min-height: 136px;
+  min-height: 136px !important;
   overflow: visible;
 }
-.site-header .brand,
-.site-footer .brand {
+.site-header .brand-logo-full,
+.site-footer .brand-logo-full {
   display: inline-flex;
   align-items: center;
   justify-content: flex-start;
-  gap: 16px;
+  gap: 14px;
   flex: 0 0 auto;
   min-width: 0;
   height: auto;
   margin: 0;
   padding: 0;
   overflow: visible;
-  color: var(--ink);
-  font-size: 24px;
-  font-weight: 700;
-  letter-spacing: .16em;
-  line-height: 1.2;
+  line-height: 1;
 }
-.site-header .brand-logo-full,
-.site-footer .brand-logo-full {
-  display: inline-flex;
-  align-items: center;
-  gap: 16px;
+.site-header .brand-mark,
+.site-footer .brand-mark {
+  display: block;
+  flex: 0 0 100px;
+  width: 100px;
+  height: 72px;
   overflow: visible;
-  min-width: 0;
 }
-.site-header .brand-logo-full > img,
-.site-footer .brand-logo-full > img {
+.site-header .brand-mark img,
+.site-footer .brand-mark img {
   display: block;
   position: static;
-  width: 90px;
-  height: 72px;
+  width: 100%;
+  height: 100%;
   max-width: none;
   max-height: none;
-  flex: 0 0 90px;
   object-fit: contain;
   transform: none;
   margin: 0;
@@ -1730,65 +1710,209 @@ section[id], aside[id] { scroll-margin-top:115px; }
 }
 .site-header .brand-wordmark,
 .site-footer .brand-wordmark {
-  display: inline-block;
+  display: block;
   flex: 0 0 auto;
   white-space: nowrap;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: .16em;
+  line-height: 1.2;
   margin: 0;
   padding: 0;
   transform: none;
 }
 @media (max-width: 700px) {
-  .site-header { min-height: 112px; gap: 8px; }
-  .site-header .brand,
-  .site-footer .brand,
+  .site-header { min-height: 112px !important; gap: 8px; }
   .site-header .brand-logo-full,
   .site-footer .brand-logo-full { gap: 9px; }
-  .site-header .brand-logo-full > img,
-  .site-footer .brand-logo-full > img {
-    width: 72px;
-    height: 60px;
-    flex-basis: 72px;
-  }
-  .site-header .brand-wordmark {
-    font-size: clamp(15px, 3.8vw, 21px);
-    letter-spacing: .12em;
-  }
+  .site-header .brand-mark,
+  .site-footer .brand-mark { flex-basis: 80px; width: 80px; height: 58px; }
+  .site-header .brand-wordmark { font-size: clamp(15px, 3.8vw, 21px); letter-spacing: .12em; }
   .main-nav { top: 112px; }
 }
 @media (max-width: 380px) {
-  .site-header .brand-logo-full > img,
-  .site-footer .brand-logo-full > img {
-    width: 62px;
-    height: 52px;
-    flex-basis: 62px;
-  }
+  .site-header .brand-mark,
+  .site-footer .brand-mark { flex-basis: 67px; width: 67px; height: 48px; }
   .site-header .brand-wordmark { font-size: 15px; letter-spacing: .08em; }
 }
 
-/* HER MOVE 22.11.2026: Studiofoto mit sauberer SVG-Kontur aus der gelieferten Form */
-.hero-side-by-side .studio-photo {
-  border-radius: 0 !important;
-  background: transparent !important;
-  -webkit-mask: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20289.5%20240%22%20preserveAspectRatio%3D%22none%22%3E%3Cpath%20fill%3D%22white%22%20d%3D%22M%2026.601562%20155.625%20C%2016.710938%20151.671875%2011.21875%20138.699219%2011.203125%20126.5625%20C%2011.1875%20114.425781%2015.496094%20102.910156%2019.839844%2091.871094%20C%2025.640625%2077.132812%2032.230469%2061.730469%2044.03125%2053.0625%20C%2055.878906%2044.367188%2070.867188%2044.074219%2084.808594%2045.808594%20C%2098.75%2047.546875%20112.769531%2051.027344%20126.664062%2048.871094%20C%20153.851562%2044.644531%20176.390625%2019.546875%20203.734375%2016.96875%20C%20219.734375%2015.460938%20236.183594%2022.371094%20247.640625%2035.410156%20C%20259.097656%2048.453125%20265.359375%2067.402344%20264.355469%2085.988281%20C%20263.34375%20104.660156%20255.472656%20122.132812%20254.355469%20140.796875%20C%20253.527344%20154.511719%20256.382812%20168.460938%20254.082031%20181.945312%20C%20250.832031%20200.945312%20237.394531%20216.179688%20221.839844%20223.230469%20C%20206.285156%20230.28125%20188.914062%20230.109375%20172.453125%20226.835938%20C%20121.394531%20216.6875%2078.601562%20176.414062%2026.601562%20155.632812%20Z%20M%2026.601562%20155.625%20%22%2F%3E%3C%2Fsvg%3E") center / 100% 100% no-repeat;
-  mask: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20289.5%20240%22%20preserveAspectRatio%3D%22none%22%3E%3Cpath%20fill%3D%22white%22%20d%3D%22M%2026.601562%20155.625%20C%2016.710938%20151.671875%2011.21875%20138.699219%2011.203125%20126.5625%20C%2011.1875%20114.425781%2015.496094%20102.910156%2019.839844%2091.871094%20C%2025.640625%2077.132812%2032.230469%2061.730469%2044.03125%2053.0625%20C%2055.878906%2044.367188%2070.867188%2044.074219%2084.808594%2045.808594%20C%2098.75%2047.546875%20112.769531%2051.027344%20126.664062%2048.871094%20C%20153.851562%2044.644531%20176.390625%2019.546875%20203.734375%2016.96875%20C%20219.734375%2015.460938%20236.183594%2022.371094%20247.640625%2035.410156%20C%20259.097656%2048.453125%20265.359375%2067.402344%20264.355469%2085.988281%20C%20263.34375%20104.660156%20255.472656%20122.132812%20254.355469%20140.796875%20C%20253.527344%20154.511719%20256.382812%20168.460938%20254.082031%20181.945312%20C%20250.832031%20200.945312%20237.394531%20216.179688%20221.839844%20223.230469%20C%20206.285156%20230.28125%20188.914062%20230.109375%20172.453125%20226.835938%20C%20121.394531%20216.6875%2078.601562%20176.414062%2026.601562%20155.632812%20Z%20M%2026.601562%20155.625%20%22%2F%3E%3C%2Fsvg%3E") center / 100% 100% no-repeat;
+
+/* HER MOVE – kompakter Original-Header, ohne Bildbeschnitt. */
+.site-header.section-shell { min-height: 106px !important; padding-block: 0 !important; overflow: visible !important; }
+.site-header .brand-original, .site-footer .brand-original {
+  display: inline-flex !important; align-items: center !important;
+  gap: 10px !important; font-size: 24px !important;
+  font-weight: 700 !important; letter-spacing: .16em !important;
+  line-height: 1.2 !important; overflow: visible !important;
 }
+.site-header .brand-original .brand-icon, .site-footer .brand-original .brand-icon {
+  display: flex !important; align-items: center !important; justify-content: center !important;
+  position: relative !important; width: 55px !important; height: 48px !important;
+  flex: 0 0 55px !important; overflow: visible !important;
+}
+.site-header .brand-original .brand-icon img, .site-footer .brand-original .brand-icon img {
+  display: block !important; position: static !important;
+  width: 55px !important; height: 48px !important;
+  max-width: 100% !important; max-height: 100% !important;
+  object-fit: contain !important; transform: none !important;
+  margin: 0 !important;
+}
+.site-header .brand-original .brand-wordmark, .site-footer .brand-original .brand-wordmark {
+  font-size: inherit !important; letter-spacing: inherit !important;
+  white-space: nowrap !important; line-height: 1.2 !important;
+}
+@media (max-width: 700px) {
+  .site-header.section-shell { min-height: 85px !important; }
+  .site-header .brand-original { font-size: 21px !important; gap: 8px !important; }
+  .site-header .brand-original .brand-icon { width: 48px !important; height: 42px !important; flex-basis: 48px !important; }
+  .site-header .brand-original .brand-icon img { width: 48px !important; height: 42px !important; }
+  .site-header .main-nav { top: 85px !important; }
+}
+@media (max-width: 380px) {
+  .site-header .brand-original { font-size: 18px !important; gap: 7px !important; }
+  .site-header .brand-original .brand-icon { width: 43px !important; height: 38px !important; flex-basis: 43px !important; }
+  .site-header .brand-original .brand-icon img { width: 43px !important; height: 38px !important; }
+}
+
+/* HER MOVE – einheitliches Logo ohne Beschnitt auf allen Seiten */
+.site-header .brand-original, .site-footer .brand-original {display:inline-flex!important;align-items:center!important;gap:10px!important;overflow:visible!important;flex-shrink:0!important;}
+.site-header .brand-original .brand-icon, .site-footer .brand-original .brand-icon {position:static!important;display:flex!important;align-items:center!important;justify-content:center!important;width:58px!important;height:58px!important;flex:0 0 58px!important;overflow:visible!important;}
+.site-header .brand-original .brand-icon img, .site-footer .brand-original .brand-icon img {position:static!important;display:block!important;width:100%!important;height:100%!important;max-width:100%!important;max-height:100%!important;object-fit:contain!important;object-position:center!important;transform:none!important;inset:auto!important;margin:0!important;clip-path:none!important;}
+.site-header .brand-original .brand-wordmark, .site-footer .brand-original .brand-wordmark {white-space:nowrap!important;line-height:1.15!important;}
+.site-header.section-shell {min-height:96px!important;}
+@media(max-width:700px){.site-header.section-shell{min-height:82px!important}.site-header .brand-original .brand-icon,.site-footer .brand-original .brand-icon{width:46px!important;height:46px!important;flex-basis:46px!important}.site-header .brand-original,.site-footer .brand-original{gap:8px!important}.site-header .main-nav{top:82px!important}}
+@media(max-width:380px){.site-header .brand-original .brand-icon,.site-footer .brand-original .brand-icon{width:42px!important;height:42px!important;flex-basis:42px!important}}
+.contact-actions {display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin:24px 0;}
+.contact-actions .button {text-align:center;}
+.social-link {font-weight:700;text-decoration:underline;text-underline-offset:4px;}
+.legal-content .legal-note {background:#f0e9df;border-left:3px solid #a45441;padding:14px 18px;border-radius:8px;}
+.legal-content h2 {margin-top:34px;}
+.booking-direct-link {margin:14px 0 4px;font-size:14px;}
+.booking-direct-link a {text-decoration:underline;text-underline-offset:4px;font-weight:700;}
+
+/* HER MOVE – Studiofoto: schwarzen unteren Bildbereich ausblenden.
+   Das Foto wird am oberen Rand verankert und innerhalb der organischen Form vergrößert. */
 .hero-side-by-side .studio-photo img {
-  position: absolute !important; inset: 0 !important;
-  width: 100% !important; height: 100% !important;
-  object-fit: cover !important; object-position: center center !important;
-  max-width: 100% !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 185% !important;
+  max-width: none !important;
+  object-fit: cover !important;
+  object-position: center top !important;
 }
-/* Adresse und Mail-Button auf derselben unteren Linie */
-#kontakt .location-contact-row {
-  display: flex; justify-content: space-between; align-items: flex-end;
-  gap: 20px; margin-bottom: 22px;
+
+
+/* HER MOVE 21.11 – einheitliche finale Designregeln */
+.site-header, .site-footer {background:#203b2b !important;color:#d8d1c7 !important;}
+.site-header.section-shell {width:100% !important;max-width:none !important;padding-left:max(22px,calc((100vw - 1160px)/2)) !important;padding-right:max(22px,calc((100vw - 1160px)/2)) !important;min-height:88px !important;}
+.site-header .main-nav a {text-transform:uppercase !important;color:#d8d1c7 !important;}
+.site-header .main-nav a[href$="#buchung"] {background:#d8d1c7 !important;color:#203b2b !important;}
+.site-header .main-nav a:hover {border-color:#d8d1c7 !important;}
+.site-header .brand-original,.site-footer .brand-original {color:#d8d1c7 !important;gap:9px !important;font-size:22px !important;}
+.site-header .brand-original .brand-icon,.site-footer .brand-original .brand-icon {position:static !important;display:flex !important;width:46px !important;height:46px !important;flex:0 0 46px !important;overflow:visible !important;align-items:center !important;justify-content:center !important;}
+.site-header .brand-original .brand-icon img,.site-footer .brand-original .brand-icon img {position:static !important;inset:auto !important;display:block !important;width:46px !important;height:46px !important;max-width:100% !important;max-height:100% !important;object-fit:contain !important;object-position:center !important;clip-path:none !important;transform:none !important;}
+.site-header .brand-original .brand-wordmark,.site-footer .brand-original .brand-wordmark {color:#d8d1c7 !important;font-size:22px !important;}
+.site-footer .footer-links a,.site-footer .footer-inner p {color:#d8d1c7 !important;}
+.site-header .menu-toggle {color:#d8d1c7 !important;border-color:#d8d1c7 !important;}
+.course-card.sage,.course-card.lime,.price-card.early-bird,.price-card.membership,.schedule-section,.consultation-actions .button,.prices-section .consultation-actions .button {background:#5f6b52 !important;color:#d8d1c7 !important;}
+.course-card.sage a,.course-card.lime a {color:#d8d1c7 !important;}
+.hero-facts li:nth-child(3) {background:#5f6b52 !important;color:#d8d1c7 !important;}
+.vision .button {background:#5f6b52 !important;color:#d8d1c7 !important;}
+.hero-side-by-side .studio-photo img {position:absolute !important;left:0 !important;top:-81.6667% !important;width:100% !important;height:325% !important;max-width:none !important;object-fit:fill !important;object-position:center !important;transform:none !important;}
+.contact-details .button {margin-top:14px;background:#203b2b;color:#d8d1c7;}
+.legal-content .legal-note {display:none !important;}
+@media(max-width:800px){
+ .hero-side-by-side .studio-photo img {top:-76% !important;height:325% !important;object-fit:fill !important;}
 }
-#kontakt .location-contact-row .location-address { margin: 0 !important; }
-#kontakt .location-contact-row .contact-mail-link {
-  position: static !important; float: none !important;
-  margin: 0 !important; flex-shrink: 0;
+@media(max-width:700px){
+ .site-header.section-shell {min-height:78px !important;}
+ .site-header .brand-original,.site-footer .brand-original {font-size:18px !important;}
+ .site-header .brand-original .brand-icon,.site-footer .brand-original .brand-icon {width:40px !important;height:40px !important;flex-basis:40px !important;}
+ .site-header .brand-original .brand-icon img,.site-footer .brand-original .brand-icon img {width:40px !important;height:40px !important;}
+ .site-header .brand-original .brand-wordmark,.site-footer .brand-original .brand-wordmark {font-size:18px !important;}
+ .site-header .main-nav {top:78px !important;background:#203b2b !important;}
 }
-@media (max-width: 600px) {
-  #kontakt .location-contact-row { flex-wrap: wrap; gap: 14px; }
-  #kontakt .location-contact-row .contact-mail-link { margin-left: auto !important; }
+
+
+/* HER MOVE 22.11: gezielte Korrekturen – letzte Regeln sind maßgeblich */
+/* Das bisherige logo.png ist bereits in der Bilddatei abgeschnitten.
+   Daher verwenden alle Seiten das vollständige Logo-Asset. */
+.site-header .brand-original .brand-icon,.site-footer .brand-original .brand-icon {
+  width:58px!important;height:46px!important;flex:0 0 58px!important;
+  overflow:visible!important;position:static!important;
+}
+.site-header .brand-original .brand-icon img,.site-footer .brand-original .brand-icon img {
+  display:block!important;width:58px!important;height:46px!important;max-width:none!important;
+  object-fit:contain!important;object-position:center!important;position:static!important;
+  clip-path:none!important;transform:none!important;
+}
+.site-header .main-nav a[href$="#buchung"],.site-header .main-nav a[href="#buchung"] {
+  background:transparent!important;color:#d8d1c7!important;border-radius:0!important;
+  padding:10px 0!important;
+}
+.site-header .main-nav a[href$="#buchung"]:hover {border-color:#d8d1c7!important;}
+/* Gelb/Lime bleibt Gelb. Nur die zuvor hellgrüne Über-mich-Fläche wird Salbeigrün. */
+.course-card.lime,.price-card.early-bird {background:#e7f36a!important;color:#203b2b!important;}
+.course-card.lime a,.price-card.early-bird a {color:#203b2b!important;}
+.hero-facts li:nth-child(3),.consultation-actions .button,.vision .button {background:#e7f36a!important;color:#203b2b!important;}
+.about-section {background:#5f6b52!important;color:#d8d1c7!important;}
+.about-section .about-copy,.about-section .about-copy p,.about-section .about-copy h2,
+.about-section .about-copy h3,.about-section .about-copy .vision-heading,
+.about-section .eyebrow,.about-section .about-portrait figcaption {color:#d8d1c7!important;}
+.about-section .credentials {border-left-color:#e7f36a!important;}
+/* E-Mail klein und direkt neben der Adresse, Instagram ausschließlich in Header/Footer */
+.location-address {display:inline-block;vertical-align:middle;margin-right:20px;}
+.contact-mail-link {display:inline-flex;vertical-align:middle;align-items:center;
+  font-size:13px;font-weight:700;text-decoration:underline;text-underline-offset:4px;
+  padding:8px 0;color:#203b2b;}
+.contact-mail-link:hover {color:#a45441;}
+.instagram-icon-link {display:inline-flex!important;align-items:center;justify-content:center;
+  width:30px;min-width:30px;padding:4px!important;color:#d8d1c7!important;
+  border:0!important;background:transparent!important;text-decoration:none!important;}
+.instagram-icon-link svg {width:19px;height:19px;display:block;}
+.footer-links .instagram-icon-link {width:30px;}
+/* Mobil kompakt, Logo vollständig und E-Mail direkt neben/bei Adresse */
+@media(max-width:700px){
+ .site-header .brand-original .brand-icon,.site-footer .brand-original .brand-icon {width:48px!important;height:40px!important;flex-basis:48px!important;}
+ .site-header .brand-original .brand-icon img,.site-footer .brand-original .brand-icon img {width:48px!important;height:40px!important;}
+ .location-address {margin-right:12px;}
+ .contact-mail-link {font-size:12px;}
+}
+
+/* HER MOVE: transparentes Logo ohne weiße Hinterlegung */
+.site-header .brand-original, .site-footer .brand-original,
+.site-header .brand-original .brand-icon, .site-footer .brand-original .brand-icon,
+.site-header .brand-original .brand-icon img, .site-footer .brand-original .brand-icon img {
+ background:transparent!important; background-color:transparent!important; box-shadow:none!important;
+}
+.site-header .brand-original .brand-icon::before,.site-header .brand-original .brand-icon::after,
+.site-footer .brand-original .brand-icon::before,.site-footer .brand-original .brand-icon::after {content:none!important;display:none!important;}
+
+
+/* HER MOVE – gezielte abschließende Korrekturen 21.11. */
+/* Das Logo-Asset muss unter public/assets/her-move-logo-original.svg hochgeladen sein. */
+.site-header .brand-original .brand-icon, .site-footer .brand-original .brand-icon {
+ width:60px!important;height:46px!important;flex:0 0 60px!important;
+ overflow:visible!important;background:transparent!important;display:flex!important;align-items:center!important;justify-content:center!important;
+}
+.site-header .brand-original .brand-icon img, .site-footer .brand-original .brand-icon img {
+ width:60px!important;height:46px!important;object-fit:contain!important;
+ display:block!important;opacity:1!important;visibility:visible!important;
+ background:transparent!important;filter:none!important;clip-path:none!important;
+ transform:none!important;position:static!important;max-width:none!important;max-height:none!important;
+}
+.course-card.lime {background:#5f6b52!important;color:#d8d1c7!important;}
+.course-card.lime a,.course-card.lime h3,.course-card.lime p,.course-card.lime span {color:#d8d1c7!important;}
+.course-card.sage {background:#e7f36a!important;color:#203b2b!important;}
+.course-card.sage a,.course-card.sage h3,.course-card.sage p,.course-card.sage span {color:#203b2b!important;}
+.about-section .vision-heading,.about-section .vision-inline .vision-heading {color:#e7f36a!important;}
+.about-section .vision-inline::before,.about-section .vision-heading::before {background:#e7f36a!important;width:110px!important;height:2px!important;}
+.site-footer .footer-links a {text-decoration:none!important;border-bottom:0!important;}
+.site-footer .footer-links a:hover {text-decoration:none!important;opacity:.78;}
+.site-header .instagram-icon-link,.site-footer .instagram-icon-link {display:inline-flex!important;visibility:visible!important;opacity:1!important;}
+@media(max-width:700px){
+.site-header .brand-original .brand-icon,.site-footer .brand-original .brand-icon {width:50px!important;height:40px!important;flex-basis:50px!important;}
+.site-header .brand-original .brand-icon img,.site-footer .brand-original .brand-icon img {width:50px!important;height:40px!important;}
 }
