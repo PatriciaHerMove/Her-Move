@@ -21,9 +21,23 @@
 /* HER MOVE: Instagram rechts in der Navigation; kleine Social-Icons im Footer */
 .site-header .main-nav > a.instagram-icon-link {display:inline-flex!important;align-items:center;justify-content:center;flex-shrink:0;text-decoration:none!important;}
 .site-header .main-nav > a.instagram-icon-link svg {width:19px;height:19px;display:block;}
-.site-footer .footer-social-icons {display:inline-flex;align-items:center;justify-content:center;gap:12px;flex-shrink:0;}
-.site-footer .footer-social-icons a {display:inline-flex;align-items:center;justify-content:center;color:inherit;text-decoration:none!important;border:0!important;line-height:1;}
+.site-footer .footer-links .footer-social-icons {display:flex!important;flex-direction:column!important;align-items:flex-start!important;justify-content:center;gap:12px;flex-shrink:0;}
+.site-footer .footer-links .footer-social-icons a {display:flex!important;align-items:center;justify-content:center;color:inherit;text-decoration:none!important;border:0!important;line-height:1;}
 .site-footer .footer-social-icons svg {width:16px;height:16px;display:block;}
+</style><style id="hermove-contact-mail-button">
+/* Auffälliger E-Mail-Button rechts im Kontaktbereich */
+.contact-section .contact-mail-link {
+  display: flex !important; align-items: center; justify-content: center; gap: 9px;
+  width: fit-content; margin: 16px 0 24px auto !important;
+  padding: 13px 20px !important; border-radius: 8px !important;
+  background: #b9654e !important; color: #fffaf3 !important;
+  text-decoration: none !important; border: none !important;
+  font-weight: 700 !important; box-shadow: 0 3px 9px rgba(0,0,0,.12);
+}
+.contact-section .contact-mail-link:hover, .contact-section .contact-mail-link:focus-visible {
+  background: #a6533e !important; color: white !important;
+}
+.contact-section .contact-mail-link svg {flex: 0 0 auto;}
 </style></head>
 <body>
 <a class="skip-link" href="#inhalt">Zum Inhalt</a>
@@ -94,7 +108,7 @@
 <a href="index.html#kontakt">Kontakt &amp; Anfahrt</a>
 <a href="impressum.html">Impressum</a>
 <a href="datenschutz.html">Datenschutzerklärung</a><a href="agb.html">AGB's</a>
-<span aria-label="Kontakt und Instagram" class="footer-social-icons"><a aria-label="Schreibe mir eine Mail" href="mailto:her-move@gmx.de" title="Schreibe mir eine Mail"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><rect height="16" rx="2" width="20" x="2" y="4"></rect><path d="m3 6 9 7 9-7"></path></svg></a><a aria-label="HER MOVE auf Instagram" href="https://www.instagram.com/hermove_berlin/" rel="noopener noreferrer" target="_blank" title="HER MOVE auf Instagram"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><rect height="20" rx="5" width="20" x="2" y="2"></rect><circle cx="12" cy="12" r="4"></circle><path d="M17.5 6.5h.01"></path></svg></a></span></nav>
+<div aria-label="Kontakt und Instagram" class="footer-social-icons" style="display:flex!important;flex-direction:column!important;align-items:flex-start!important;gap:12px!important;width:max-content!important;margin-top:8px!important;"><a aria-label="Schreibe mir eine Mail" href="mailto:her-move@gmx.de" title="Schreibe mir eine Mail"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><rect height="16" rx="2" width="20" x="2" y="4"></rect><path d="m3 6 9 7 9-7"></path></svg></a><a aria-label="HER MOVE auf Instagram" href="https://www.instagram.com/hermove_berlin/" rel="noopener noreferrer" target="_blank" title="HER MOVE auf Instagram"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24"><rect height="20" rx="5" width="20" x="2" y="2"></rect><circle cx="12" cy="12" r="4"></circle><path d="M17.5 6.5h.01"></path></svg></a></div></nav>
 </div>
 </footer>
 <dialog aria-describedby="demo-description" aria-labelledby="demo-title" id="demo-dialog"><button aria-label="Dialog schließen" class="dialog-close" type="button">✕</button><p class="eyebrow">HER MOVE · Vorschau</p><h2 id="demo-title">Bald geht’s los.</h2><p id="demo-description"></p><p>Hier wurde nichts gebucht, versendet oder bezahlt.</p><form method="dialog"><button class="button button-dark">Verstanden</button></form></dialog>
